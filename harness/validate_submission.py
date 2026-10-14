@@ -68,7 +68,14 @@ def check_changed_files(changed: list[str]) -> None:
 
 def check_onnx(path: str) -> None:
     """El .onnx debe ser un grafo puro estándar que cumpla el contrato."""
-    model = onnx.load(path)
+    model = onnx.load(path, load_external_data=False)
+
+    # 0) Un solo archivo: los pesos tienen que estar DENTRO del .onnx.
+    #    torch nuevo los exporta aparte (policy.onnx.data), y ese archivo no se sube.
+    if any(t.data_location == onnx.TensorProto.EXTERNAL for t in model.graph.initializer):
+        fail("Los pesos están en un archivo externo (p.ej. policy.onnx.data), no dentro "
+             "del policy.onnx. Re-exportá con submissions/_ejemplo/export_example.py, "
+             "que guarda todo en un solo archivo.")
 
     # 1) Estructura válida.
     try:

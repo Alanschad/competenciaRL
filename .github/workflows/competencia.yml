@@ -27,7 +27,7 @@ jobs:
           fetch-depth: 0
       - uses: actions/setup-python@v5
         with: { python-version: "3.12" }
-      - run: pip install numpy onnx onnxruntime pyyaml gymnasium
+      - run: pip install -r harness/requirements.txt
 
       - name: Detectar archivos cambiados y el equipo
         id: diff
@@ -106,7 +106,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with: { python-version: "3.12" }
-      - run: pip install numpy onnx onnxruntime pyyaml gymnasium
+      - run: pip install -r harness/requirements.txt
 
       - name: Evaluar submissions nuevas/cambiadas
         env:

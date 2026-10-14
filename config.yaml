@@ -3,7 +3,8 @@
 # Si cambiás el entorno, cambialo SOLO acá.
 # =====================================================================
 
-# Entorno de Gymnasium PINNEADO con versión exacta.
+# Entorno de Gymnasium PINNEADO: id con versión (-v0) acá, y versión exacta del
+# paquete gymnasium en harness/requirements.txt.
 # MountainCar-v0: clásico para DQN. NO necesita box2d.
 env_id: "MountainCar-v0"
 

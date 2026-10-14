@@ -1,0 +1,8 @@
+# Versiones EXACTAS con las que evalúa el bot (CI usa Python 3.12).
+# Instalen lo mismo localmente para que su score coincida con el del board:
+#   pip install -r harness/requirements.txt
+gymnasium==1.3.0
+numpy==2.5.3
+onnx==1.22.0
+onnxruntime==1.30.0
+pyyaml==6.0.3

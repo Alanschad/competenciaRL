@@ -95,6 +95,13 @@ jobs:
   actualizar-board:
     if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
+    # Una sola corrida del board a la vez: si se mergean varios PRs seguidos,
+    # dos corridas en paralelo pisaban el push del board y la segunda fallaba.
+    # Sin cancel-in-progress: la que está corriendo termina; de las encoladas
+    # sobrevive la última (que igual re-evalúa TODAS las submissions).
+    concurrency:
+      group: actualizar-board
+      cancel-in-progress: false
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -122,4 +129,7 @@ jobs:
           git config user.email "rl-bot@users.noreply.github.com"
           git add results/ LEADERBOARD.md
           git diff --cached --quiet || git commit -m "Actualizar leaderboard [skip ci]"
+          # Si mientras evaluábamos se mergeó otro PR, main avanzó: traer esos
+          # commits antes de pushear (solo tocan submissions/, no hay conflicto).
+          git pull --rebase origin main
           git push

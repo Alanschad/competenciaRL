@@ -1,0 +1,61 @@
+#!/usr/bin/env python3
+"""
+Arma LEADERBOARD.md leyendo todos los results/<equipo>.json.
+Ordena por la métrica de ranking definida en config.yaml (mean por defecto).
+"""
+import json
+from datetime import datetime, timezone
+from pathlib import Path
+
+import yaml
+
+ROOT = Path(__file__).resolve().parent.parent
+CFG = yaml.safe_load((ROOT / "config.yaml").read_text())
+METRIC = CFG.get("rank_metric", "mean")
+METRIC_LABEL = {"mean": "MEDIA", "iqm": "IQM"}.get(METRIC, METRIC.upper())
+
+HEADER = "| # | Equipo | Media | Desvío | Min | Max | Episodios | IQM | Dif. al 1° |"
+SEP = "|---|--------|-------|--------|-----|-----|-----------|-----|-----------|"
+
+
+def row(rank: int, r: dict, leader_mean: float) -> str:
+    # Estilo F1: cuánto hay que sumarle a la Media para alcanzar al 1°.
+    gap = leader_mean - r["mean"]
+    gap_str = "—" if rank == 1 else f"+{gap:.3f}"
+    return (
+        f"| {rank} | {r['team']} | {r['mean']:.3f} | {r['std']:.2f} | "
+        f"{r['min']:.1f} | {r['max']:.1f} | {r['n_episodes']} | {r['iqm']:.3f} | {gap_str} |"
+    )
+
+
+def main():
+    results = []
+    for f in sorted((ROOT / "results").glob("*.json")):
+        try:
+            results.append(json.loads(f.read_text()))
+        except json.JSONDecodeError:
+            continue
+
+    results.sort(key=lambda r: r.get(METRIC, float("-inf")), reverse=True)
+
+    now = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
+    lines = [
+        "# 🏆 Leaderboard — Competencia RL (DQN)",
+        "",
+        f"Entorno: `{CFG['env_id']}` · Ranking por **{METRIC_LABEL}** · "
+        f"Actualizado: {now}",
+        "",
+        HEADER, SEP,
+    ]
+    if results:
+        leader_mean = results[0]["mean"]
+        lines += [row(i, r, leader_mean) for i, r in enumerate(results, 1)]
+    else:
+        lines.append("| — | _sin submissions todavía_ | | | | | | | | |")
+
+    (ROOT / "LEADERBOARD.md").write_text("\n".join(lines) + "\n")
+    print(f"Leaderboard regenerado con {len(results)} equipo(s).")
+
+
+if __name__ == "__main__":
+    main()

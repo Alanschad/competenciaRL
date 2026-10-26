@@ -1,7 +1,12 @@
 name: Competencia RL
 
 on:
-  pull_request:
+  # pull_request_target (y no pull_request) para que los PRs desde FORKS tengan
+  # acceso a EVAL_SEEDS. Corre SIEMPRE el workflow y el harness de main, nunca
+  # los del PR. REGLA DE SEGURIDAD: de la rama del PR solo se lee el .onnx como
+  # DATOS (git show); jamás se hace checkout de su código ni se ejecuta nada suyo,
+  # y ningún valor que venga del PR se interpola con ${{ }} en un `run:`.
+  pull_request_target:
     paths: ["submissions/**"]
   push:
     branches: [main]
@@ -9,85 +14,125 @@ on:
   workflow_dispatch:        # para correr el board manualmente el día D
 
 permissions:
-  contents: write           # para commitear results/ y LEADERBOARD.md
-  pull-requests: write      # para comentar el score en el PR
+  contents: read            # mínimo por defecto; cada job pide lo suyo
 
 jobs:
   # ----------------------------------------------------------------
-  # En PR: valida (código = descalificado) y muestra el score de preview.
-  # OJO: los Secrets NO están disponibles en PRs desde forks. Hacé que los
-  # alumnos trabajen en ramas del MISMO repo (GitHub Classroom / colaboradores).
+  # En PR: valida (código = descalificado) y comenta el score de preview.
   # ----------------------------------------------------------------
   evaluar-pr:
-    if: github.event_name == 'pull_request'
+    if: github.event_name == 'pull_request_target'
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write  # para comentar el score en el PR
+    # Si el alumno pushea de nuevo, la corrida vieja de ese PR ya no sirve.
+    concurrency:
+      group: evaluar-pr-${{ github.event.pull_request.number }}
+      cancel-in-progress: true
+    env:
+      PR_NUMBER: ${{ github.event.pull_request.number }}   # entero, seguro
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
     steps:
+      # Checkout de main (código confiable). Sin credenciales guardadas en .git.
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          persist-credentials: false
       - uses: actions/setup-python@v5
         with: { python-version: "3.12" }
       - run: pip install -r harness/requirements.txt
 
-      - name: Detectar archivos cambiados y el equipo
-        id: diff
+      - name: Traer el PR (solo como datos) y validar
+        id: validar
         run: |
-          FILES=$(git diff --name-only origin/${{ github.base_ref }}...HEAD)
-          echo "Archivos en el PR:"; echo "$FILES"
-          echo "changed=$(echo $FILES | tr '\n' ' ')" >> "$GITHUB_OUTPUT"
-          TEAM=$(echo "$FILES" | grep -oP 'submissions/\K[^/]+' | head -1)
-          # Si el PR no toca ninguna submissions/<equipo>/policy.onnx (p.ej. solo
-          # cambia el board/results o docs), no hay nada que evaluar: marcamos
-          # has_team=false para SALTAR el preview en vez de reventar con
-          # 'submissions//policy.onnx'.
-          if [ -n "$TEAM" ] && [ -f "submissions/$TEAM/policy.onnx" ]; then
-            echo "has_team=true" >> "$GITHUB_OUTPUT"
-            echo "team=$TEAM" >> "$GITHUB_OUTPUT"
-            echo "onnx=submissions/$TEAM/policy.onnx" >> "$GITHUB_OUTPUT"
+          set -uo pipefail
+          OUT="$RUNNER_TEMP/validacion.txt"; : > "$OUT"
+          CHANGED="$RUNNER_TEMP/changed.txt"
+
+          # Los commits del PR (aunque vengan de un fork) quedan en refs/pull/N/head.
+          git fetch --no-tags --quiet origin "+refs/pull/${PR_NUMBER}/head:refs/pr/head"
+          git diff --name-only HEAD...refs/pr/head > "$CHANGED"
+          echo "Archivos en el PR:"; cat "$CHANGED"
+
+          invalida() {
+            printf '%s\n' "$1" | tee "$OUT"
+            echo "estado=invalida" >> "$GITHUB_OUTPUT"
+            exit 1
+          }
+
+          TEAMS=$(sed -n 's|^submissions/\([^/]*\)/.*|\1|p' "$CHANGED" | sort -u)
+          N=$(printf '%s' "$TEAMS" | grep -c . || true)
+          if [ "$N" -eq 0 ]; then
+            echo "estado=sin-submission" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          [ "$N" -gt 1 ] && invalida "El PR toca más de una carpeta de equipo ($(echo $TEAMS)). Un PR = un equipo."
+          TEAM="$TEAMS"
+          [[ "$TEAM" =~ ^[A-Za-z0-9_-]+$ ]] || invalida "Nombre de carpeta no válido: solo letras sin tildes, números, '-' y '_'."
+          [ "$TEAM" = "_ejemplo" ] && invalida "submissions/_ejemplo/ es la carpeta de ejemplo: subí tu policy en submissions/<tu-equipo>/."
+          git cat-file -e "refs/pr/head:submissions/$TEAM/policy.onnx" 2>/dev/null \
+            || invalida "Falta submissions/$TEAM/policy.onnx en el PR."
+
+          git show "refs/pr/head:submissions/$TEAM/policy.onnx" > "$RUNNER_TEMP/policy.onnx"
+          echo "team=$TEAM" >> "$GITHUB_OUTPUT"
+
+          if python harness/validate_submission.py \
+               --changed-files "$(tr '\n' ' ' < "$CHANGED")" \
+               --onnx "$RUNNER_TEMP/policy.onnx" 2>&1 | tee "$OUT"; then
+            echo "estado=valida" >> "$GITHUB_OUTPUT"
           else
-            echo "has_team=false" >> "$GITHUB_OUTPUT"
-            echo "::notice::PR sin cambios en submissions/<equipo>/policy.onnx -> sin score de preview."
+            echo "estado=invalida" >> "$GITHUB_OUTPUT"
+            exit 1
           fi
 
-      - name: Validar (solo pesos)
-        if: steps.diff.outputs.has_team == 'true'
-        run: |
-          python harness/validate_submission.py \
-            --changed-files "${{ steps.diff.outputs.changed }}" \
-            --onnx "${{ steps.diff.outputs.onnx }}"
-
       - name: Evaluar con seeds ocultas
-        if: steps.diff.outputs.has_team == 'true'
+        if: steps.validar.outputs.estado == 'valida'
         env:
           EVAL_SEEDS: ${{ secrets.EVAL_SEEDS }}   # set OCULTO de ranking
+          TEAM: ${{ steps.validar.outputs.team }}  # ya validado contra [A-Za-z0-9_-]
         run: |
           python harness/evaluate.py \
-            --onnx "${{ steps.diff.outputs.onnx }}" \
-            --team "${{ steps.diff.outputs.team }}" \
-            --out /tmp/result.json
+            --onnx "$RUNNER_TEMP/policy.onnx" \
+            --team "$TEAM" \
+            --out "$RUNNER_TEMP/result.json"
 
-      - name: Comentar el score en el PR
-        if: steps.diff.outputs.has_team == 'true'
+      - name: Comentar en el PR
+        if: always() && steps.validar.outputs.estado != ''
         env:
-          GH_TOKEN: ${{ github.token }}
+          ESTADO: ${{ steps.validar.outputs.estado }}
         run: |
-          {
-            echo "✅ Submission válida — score de preview (seeds ocultas):"
-            echo '```json'
-            cat /tmp/result.json
-            echo ''
-            echo '```'
-            echo "El board oficial se actualiza al mergear a \`main\`."
-          } > /tmp/comment.md
-          gh pr comment ${{ github.event.pull_request.number }} --body-file /tmp/comment.md
-
-      - name: Avisar que no hay preview (PR sin submission)
-        if: steps.diff.outputs.has_team != 'true'
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          gh pr comment ${{ github.event.pull_request.number }} --body \
-            "ℹ️ Este PR no modifica ninguna \`submissions/<equipo>/policy.onnx\`, así que no hay score de preview. El board oficial se actualiza al mergear a \`main\`."
+          C="$RUNNER_TEMP/comment.md"
+          case "$ESTADO" in
+            valida)
+              if [ -f "$RUNNER_TEMP/result.json" ]; then
+                {
+                  echo "✅ Submission válida — score de preview (seeds ocultas):"
+                  echo '```json'
+                  cat "$RUNNER_TEMP/result.json"
+                  echo ''
+                  echo '```'
+                  echo "El board oficial se actualiza al mergear a \`main\`."
+                } > "$C"
+              else
+                echo "⚠️ La submission es válida pero la evaluación falló. Avisale al profe." > "$C"
+              fi
+              ;;
+            invalida)
+              {
+                echo "❌ Submission inválida:"
+                echo '```'
+                sed 's/^::error:://' "$RUNNER_TEMP/validacion.txt"
+                echo '```'
+                echo "Corregí, commiteá y pusheá a la misma rama: el bot vuelve a correr solo."
+              } > "$C"
+              ;;
+            sin-submission)
+              echo "ℹ️ Este PR no modifica ninguna \`submissions/<equipo>/policy.onnx\`, así que no hay score de preview. El board oficial se actualiza al mergear a \`main\`." > "$C"
+              ;;
+          esac
+          gh pr comment "$PR_NUMBER" --body-file "$C"
 
   # ----------------------------------------------------------------
   # En push a main (post-merge): re-evalúa, guarda result y regenera board.
@@ -102,6 +147,8 @@ jobs:
     concurrency:
       group: actualizar-board
       cancel-in-progress: false
+    permissions:
+      contents: write       # para commitear results/ y LEADERBOARD.md
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5

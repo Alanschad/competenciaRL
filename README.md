@@ -81,23 +81,17 @@ En `submissions/_ejemplo/export_example.py` tenés cómo exportar desde PyTorch
   prueben, y un set **oculto** para el ranking real. El día D se usa un tercer set
   de holdout que nadie vio.
 
-## Antes de empezar: acceso al repo
+## Antes de empezar: forkeá el repo
 
-Para subir tenés que trabajar en una **rama de este repo**, no en un fork: los forks
-no acceden a las seeds ocultas y la evaluación no corre. Para eso necesitás permiso
-de escritura:
+No hace falta pedir acceso: cada uno trabaja en **su propio fork** y manda un PR.
 
-1. Pasale tu **usuario de GitHub** al profe.
-2. Te llega una invitación como colaborador (por mail, o en
-   <https://github.com/nicoRomeroCuruchet/competenciaRL/invitations>). Aceptala.
-3. Cloná el repo:
+1. En GitHub, tocá **Fork** (arriba a la derecha) para crear tu copia del repo.
+2. Cloná **tu fork** y agregá este repo como `upstream`, para poder traer cambios:
    ```bash
-   git clone https://github.com/nicoRomeroCuruchet/competenciaRL.git
+   git clone https://github.com/<tu-usuario>/competenciaRL.git
    cd competenciaRL
+   git remote add upstream https://github.com/nicoRomeroCuruchet/competenciaRL.git
    ```
-
-Tener permiso de escritura **no** significa que puedas tocar cualquier cosa: solo se
-mergean PRs que cumplen la regla de oro, y no se pushea directo a `main`.
 
 ## Probá localmente antes de subir
 
@@ -128,8 +122,8 @@ pip install torch          # solo para exportar; el evaluador no lo usa
 ## Cómo subir
 
 ```bash
-git checkout main && git pull
-git checkout -b submission-mi-equipo
+git fetch upstream
+git checkout -b submission-mi-equipo upstream/main
 mkdir -p submissions/mi-equipo
 cp ruta/a/policy.onnx submissions/mi-equipo/policy.onnx
 # opcional: submissions/mi-equipo/metadata.json
@@ -138,16 +132,19 @@ git commit -m "submission: mi-equipo"
 git push -u origin submission-mi-equipo
 ```
 
-1. Entrá al repo en GitHub y abrí un **Pull Request** de tu rama contra `main`.
+1. Entrá a tu fork en GitHub y abrí un **Pull Request** de tu rama contra `main` de
+   `nicoRomeroCuruchet/competenciaRL` (GitHub te ofrece el botón "Compare & pull request").
 2. El bot valida, corre la evaluación con las seeds ocultas y te comenta el **score de
    preview** en el PR (tarda unos minutos).
-3. Si la validación falla, el PR queda en rojo con el motivo. Corregí, commiteá y
-   pusheá a la misma rama: el bot vuelve a correr solo.
+3. Si la validación falla, el bot te comenta el motivo. Corregí, commiteá y pusheá a la
+   misma rama de tu fork: el PR se actualiza y el bot vuelve a correr solo.
 4. Cuando se mergea a `main`, se actualiza el [leaderboard](LEADERBOARD.md).
 
+Un PR = un equipo: si toca más de una carpeta de `submissions/`, se rechaza.
+
 Pueden subir **múltiples policies** (PRs sucesivos); cuenta la última de cada equipo.
-Para una nueva versión, partí de `main` actualizado (`git checkout main && git pull`)
-y abrí un PR nuevo.
+Para una nueva versión, creá otra rama desde `upstream/main` actualizado (los dos
+primeros comandos de arriba) y abrí un PR nuevo.
 
 ## Errores comunes
 
@@ -157,4 +154,4 @@ y abrí un PR nuevo.
 | "El PR toca archivos fuera de submissions/<equipo>/" | Commiteaste algo más (un notebook, un `.pt`, el `export_example.py`, `results/`…). Sacalo del PR: `git rm --cached <archivo>`, commit y push. |
 | "La entrada debe llamarse 'observation'" (o la salida `q_values`) | Faltan `input_names` / `output_names` en el `torch.onnx.export`. |
 | Media de **-200** exacta | La policy nunca llega a la meta: suele ser una red sin entrenar o que no cargaste tus pesos antes de exportar. |
-| El PR no tiene comentario del bot | Lo abriste desde un **fork**. Tiene que ser una rama de este repo. |
+| El PR no tiene comentario del bot | Esperá unos minutos y mirá la pestaña **Checks** del PR. Si sigue sin aparecer, avisale al profe. |

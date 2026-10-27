@@ -1,0 +1,1 @@
+{"team": "vanafa", "members": ["Valentino Nallib Fadel"], "notes": "DQN (Double + n-step 3 + PER + target network) con normalizacion de observaciones dentro de la red"}

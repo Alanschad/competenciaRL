@@ -1,0 +1,1 @@
+{"team": "jazgeller", "members": ["Jazmin Geller"], "notes": "DQN + target network + normalización de la observación + reward shaping por energía (basado en potencial) + gamma=0.995"}

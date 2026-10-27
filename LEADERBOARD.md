@@ -1,6 +1,6 @@
 # 🏆 Leaderboard — Competencia RL (DQN)
 
-Entorno: `MountainCar-v0` · Ranking por **MEDIA** · Actualizado: 2026-10-27 19:20 UTC
+Entorno: `MountainCar-v0` · Ranking por **MEDIA** · Actualizado: 2026-10-27 20:26 UTC
 
 | # | Equipo | Media | Desvío | Min | Max | Episodios | IQM | Dif. al 1° |
 |---|--------|-------|--------|-----|-----|-----------|-----|-----------|
@@ -9,8 +9,8 @@ Entorno: `MountainCar-v0` · Ranking por **MEDIA** · Actualizado: 2026-10-27 19
 | 3 | ivan-de-pineda-es-inocente-sin-cos | -97.544 | 7.39 | -104.0 | -83.0 | 1000 | -100.458 | +0.110 |
 | 4 | salim | -97.613 | 7.49 | -104.0 | -83.0 | 1000 | -100.276 | +0.179 |
 | 5 | DeCruz | -97.747 | 7.55 | -104.0 | -83.0 | 1000 | -100.490 | +0.313 |
-| 6 | jazgeller | -97.958 | 7.63 | -108.0 | -83.0 | 1000 | -100.822 | +0.524 |
-| 7 | valentino-pettazi | -98.019 | 7.26 | -107.0 | -83.0 | 1000 | -100.976 | +0.585 |
+| 6 | valentino-pettazi | -97.909 | 7.52 | -105.0 | -83.0 | 1000 | -100.656 | +0.475 |
+| 7 | jazgeller | -97.958 | 7.63 | -108.0 | -83.0 | 1000 | -100.822 | +0.524 |
 | 8 | sb3zoo | -99.114 | 8.06 | -108.0 | -84.0 | 1000 | -101.784 | +1.680 |
 | 9 | matbr | -99.276 | 7.72 | -106.0 | -84.0 | 1000 | -102.014 | +1.842 |
 | 10 | zoffi | -101.328 | 7.77 | -111.0 | -83.0 | 1000 | -103.064 | +3.894 |

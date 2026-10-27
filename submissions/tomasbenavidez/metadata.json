@@ -1,0 +1,1 @@
+{"team": "tomasbenavidez", "members": ["Tomás Benavidez"], "notes": "DQN puro: Double DQN + TD 3-step + shaping por potencial de energía + rasgos sin(3p) y v^2 + Self-Imitation Learning sobre episodios propios; MLP 128-128, Huber"}

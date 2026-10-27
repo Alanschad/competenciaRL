@@ -1,1 +1,1 @@
-{"team": "vanafa", "members": ["Valentino Nallib Fadel"], "notes": "Ensamble de 2 DQN (Double + n-step 3 + PER + target network, normalizacion dentro de la red; una entrenada con arranques aleatorios), promedio de Q-values"}
+{"team": "vanafa", "members": ["Valentino Nallib Fadel"], "notes": "Ensamble de 3 DQN (Double + n-step 3 + PER + target network, normalizacion dentro de la red), promedio de Q-values, miembros elegidos por seleccion hacia adelante sobre 1000 semillas propias"}

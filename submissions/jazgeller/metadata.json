@@ -1,1 +1,1 @@
-{"team": "jazgeller", "members": ["Jazmin Geller"], "notes": "DQN + target network + normalización de la observación + reward shaping por energía (basado en potencial) + gamma=0.995"}
+{"team": "jazgeller", "members": ["Jazmin Geller"], "notes": "DQN + target network + normalización de la observación + reward shaping por energía (basado en potencial) + gamma=0.995 + 3000 episodios con lr decreciente y epsilon mínimo 0.01"}

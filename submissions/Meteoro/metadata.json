@@ -1,0 +1,7 @@
+{
+  "team": "Meteoro",
+  "members": [
+    "Facundo Firpo"
+  ],
+  "notes": "Rainbow DQN (MC-05), semilla 123; politica greedy sin ruido Noisy Nets."
+}

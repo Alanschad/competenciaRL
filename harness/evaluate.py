@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """
-Evalúa un policy.onnx sobre un conjunto de seeds.
+Evalúa un policy.onnx sobre un conjunto de seeds, en CADA circuito del
+campeonato (config.yaml -> circuits; ver harness/circuits.py).
 
 - Política: accion = argmax(Q(obs))  (greedy, determinista).
 - Una corrida (episodio) por seed -> con política y entorno deterministas,
@@ -15,16 +16,18 @@ seeds/public_seeds.txt (las de práctica).
 
 Uso:
     EVAL_SEEDS="11,22,33" python evaluate.py --onnx policy.onnx --team mi_equipo
+    python evaluate.py --onnx policy.onnx --team mi_equipo --out r.json --md r.md
 """
 import argparse
 import json
 import os
 from pathlib import Path
 
-import gymnasium as gym
 import numpy as np
 import onnxruntime as ort
 import yaml
+
+from circuits import check_vs_gymnasium, gym_start_positions, rollout, sample_params
 
 ROOT = Path(__file__).resolve().parent.parent
 CFG = yaml.safe_load((ROOT / "config.yaml").read_text())
@@ -40,20 +43,52 @@ def load_seeds() -> list[int]:
     raise SystemExit("No hay seeds: definí EVAL_SEEDS o seeds/public_seeds.txt")
 
 
-def run_episode(sess, input_name, output_name, n_actions, seed: int) -> float:
-    env = gym.make(CFG["env_id"])
-    obs, _ = env.reset(seed=seed)
-    total = 0.0
-    for _ in range(CFG["max_steps_per_episode"]):
-        x = np.asarray(obs, dtype=np.float32).reshape(1, -1)
-        q = sess.run([output_name], {input_name: x})[0]
-        action = int(np.argmax(q[0]))
-        obs, reward, terminated, truncated, _ = env.step(action)
-        total += float(reward)
-        if terminated or truncated:
-            break
-    env.close()
-    return total
+def make_policy(onnx_path: str):
+    """Devuelve (f_batch, f_single). Si el ONNX no acepta batch>1 (batch fijo en 1),
+    f_batch cae a una llamada por fila: más lento, pero evalúa igual."""
+    sess = ort.InferenceSession(onnx_path, providers=["CPUExecutionProvider"])
+    inp, out = CFG["input_name"], CFG["output_name"]
+
+    def single(x):
+        return sess.run([out], {inp: x})[0]
+
+    try:
+        ok = single(np.zeros((2, CFG["obs_dim"]), np.float32)).shape == (2, CFG["n_actions"])
+    except Exception:  # noqa: BLE001
+        ok = False
+    if ok:
+        return single, single
+    return (lambda x: np.concatenate([single(r[None, :]) for r in x])), single
+
+
+def stats(returns: np.ndarray) -> dict:
+    ci_iqm = bootstrap_ci(returns, iqm, CFG["bootstrap_resamples"])
+    ci_mean = bootstrap_ci(returns, np.mean, CFG["bootstrap_resamples"])
+    return {
+        "mean": float(returns.mean()),
+        "mean_ci95": [round(ci_mean[0], 3), round(ci_mean[1], 3)],
+        "std": float(returns.std(ddof=1)) if len(returns) > 1 else 0.0,
+        "iqm": iqm(returns),
+        "iqm_ci95": [round(ci_iqm[0], 3), round(ci_iqm[1], 3)],
+        "min": float(returns.min()),
+        "max": float(returns.max()),
+        # Episodios que no llegaron a la meta (retorno = -max_steps).
+        "fail_rate": float((returns <= -CFG["max_steps_per_episode"]).mean()),
+    }
+
+
+def to_markdown(result: dict) -> str:
+    names = {c["id"]: c["name"] for c in CFG["circuits"]}
+    lines = [
+        f"| Circuito | Media | IC95 | IQM | Sin llegar a la meta |",
+        f"|---|---|---|---|---|",
+    ]
+    for cid, r in result["circuits"].items():
+        lines.append(
+            f"| {names.get(cid, cid)} | {r['mean']:.3f} | [{r['mean_ci95'][0]:.2f}, {r['mean_ci95'][1]:.2f}] "
+            f"| {r['iqm']:.3f} | {100 * r['fail_rate']:.1f}% |"
+        )
+    return "\n".join(lines) + "\n"
 
 
 def iqm(x: np.ndarray) -> float:
@@ -88,30 +123,21 @@ def main():
     p.add_argument("--onnx", required=True)
     p.add_argument("--team", required=True)
     p.add_argument("--out", default=None, help="ruta del result.json de salida")
+    p.add_argument("--md", default=None, help="opcional: tabla markdown con el resultado")
     args = p.parse_args()
 
     seeds = load_seeds()
-    sess = ort.InferenceSession(args.onnx, providers=["CPUExecutionProvider"])
-    returns = np.array(
-        [run_episode(sess, CFG["input_name"], CFG["output_name"],
-                     CFG["n_actions"], s) for s in seeds],
-        dtype=np.float64,
-    )
+    max_steps = CFG["max_steps_per_episode"]
+    f_batch, f_single = make_policy(args.onnx)
+    base_pos = gym_start_positions(CFG["env_id"], seeds)
+    check_vs_gymnasium(f_single, f_batch, CFG["env_id"], seeds, base_pos, max_steps)
 
-    score_iqm = iqm(returns)
-    ci_iqm = bootstrap_ci(returns, iqm, CFG["bootstrap_resamples"])
-    ci_mean = bootstrap_ci(returns, np.mean, CFG["bootstrap_resamples"])
-    result = {
-        "team": args.team,
-        "n_episodes": len(returns),
-        "mean": float(returns.mean()),
-        "mean_ci95": [round(ci_mean[0], 3), round(ci_mean[1], 3)],
-        "std": float(returns.std(ddof=1)) if len(returns) > 1 else 0.0,
-        "iqm": score_iqm,
-        "iqm_ci95": [round(ci_iqm[0], 3), round(ci_iqm[1], 3)],
-        "min": float(returns.min()),
-        "max": float(returns.max()),
-    }
+    result = {"team": args.team, "n_episodes": len(seeds), "circuits": {}}
+    for c in CFG["circuits"]:
+        params = sample_params(c, seeds, base_pos, max_steps)
+        returns = rollout(f_batch, params, max_steps)
+        result["circuits"][c["id"]] = stats(returns)
+
     # No imprimimos seeds ni el detalle por-seed (info de las seeds ocultas).
     print(json.dumps(result, indent=2))
 
@@ -119,6 +145,8 @@ def main():
     Path(out).parent.mkdir(parents=True, exist_ok=True)
     Path(out).write_text(json.dumps(result, indent=2))
     print(f"\nGuardado en {out}")
+    if args.md:
+        Path(args.md).write_text(to_markdown(result))
 
 
 if __name__ == "__main__":

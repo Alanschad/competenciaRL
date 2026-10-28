@@ -96,7 +96,8 @@ jobs:
           python harness/evaluate.py \
             --onnx "$RUNNER_TEMP/policy.onnx" \
             --team "$TEAM" \
-            --out "$RUNNER_TEMP/result.json"
+            --out "$RUNNER_TEMP/result.json" \
+            --md "$RUNNER_TEMP/result.md"
 
       - name: Comentar en el PR
         if: always() && steps.validar.outputs.estado != ''
@@ -106,14 +107,13 @@ jobs:
           C="$RUNNER_TEMP/comment.md"
           case "$ESTADO" in
             valida)
-              if [ -f "$RUNNER_TEMP/result.json" ]; then
+              if [ -f "$RUNNER_TEMP/result.md" ]; then
                 {
-                  echo "✅ Submission válida — score de preview (seeds ocultas):"
-                  echo '```json'
-                  cat "$RUNNER_TEMP/result.json"
+                  echo "✅ Submission válida — score de preview en cada circuito (seeds ocultas):"
                   echo ''
-                  echo '```'
-                  echo "El board oficial se actualiza al mergear a \`main\`."
+                  cat "$RUNNER_TEMP/result.md"
+                  echo ''
+                  echo "Los puntos del campeonato dependen de la posición contra los demás equipos: se calculan al mergear a \`main\`, en el [leaderboard](https://github.com/$GH_REPO/blob/main/LEADERBOARD.md)."
                 } > "$C"
               else
                 echo "⚠️ La submission es válida pero la evaluación falló. Avisale al profe." > "$C"
@@ -144,8 +144,10 @@ jobs:
     # dos corridas en paralelo pisaban el push del board y la segunda fallaba.
     # Sin cancel-in-progress: la que está corriendo termina; de las encoladas
     # sobrevive la última (que igual re-evalúa TODAS las submissions).
+    # Grupo por rama: una corrida de prueba en otra rama no cancela ni demora
+    # las de main.
     concurrency:
-      group: actualizar-board
+      group: actualizar-board-${{ github.ref_name }}
       cancel-in-progress: false
     permissions:
       contents: write       # para commitear results/ y LEADERBOARD.md
@@ -154,6 +156,14 @@ jobs:
       - uses: actions/setup-python@v5
         with: { python-version: "3.12" }
       - run: pip install -r harness/requirements.txt
+
+      # Rama de prueba (p.ej. campeonato, corrida con "Run workflow"): evalúa
+      # las submissions que hay HOY en main, sin tocar main.
+      - name: Traer las submissions de main (solo fuera de main)
+        if: github.ref_name != 'main'
+        run: |
+          git fetch --no-tags --quiet origin main
+          git checkout FETCH_HEAD -- submissions/
 
       - name: Evaluar submissions nuevas/cambiadas
         env:
@@ -176,7 +186,8 @@ jobs:
           git config user.email "rl-bot@users.noreply.github.com"
           git add results/ LEADERBOARD.md
           git diff --cached --quiet || git commit -m "Actualizar leaderboard [skip ci]"
-          # Si mientras evaluábamos se mergeó otro PR, main avanzó: traer esos
+          # Si mientras evaluábamos se mergeó otro PR, la rama avanzó: traer esos
           # commits antes de pushear (solo tocan submissions/, no hay conflicto).
-          git pull --rebase origin main
+          # Contra la rama que se está corriendo (main, o otra con workflow_dispatch).
+          git pull --rebase origin "$GITHUB_REF_NAME"
           git push

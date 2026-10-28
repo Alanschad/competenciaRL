@@ -4,6 +4,30 @@
   <img src="gifs/mountain_car.gif" alt="Agente DQN escalando la montaña en MountainCar-v0" width="490">
 </p>
 
+## 📜 Comunicado oficial de la Federación Internacional de Autitos (FIA)
+
+*Para conocimiento de todas las escuderías.*
+
+Tras constatar con preocupación que **cinco equipos terminan a menos de 0,05 pasos
+entre sí**, la FIA, en uso de sus facultades discrecionales, sorpresivas e
+inapelables, resuelve **cambiar el reglamento a mitad de temporada**. Como hace
+siempre.
+
+Desde hoy la temporada pasa a ser un **campeonato de 5 Grandes Premios**. Las
+escuderías **no** podrán cambiar de auto entre circuitos: la misma policy corre en
+todos. La FIA aclara que esto no apunta a ningún equipo en particular, y en
+particular a ninguno.
+
+Las seeds se rotarán sin previo aviso. Las escuderías que hayan inscripto varios
+autos podrán seguir corriendo con todos, porque la FIA tampoco lee su propio
+reglamento.
+
+Los reclamos se reciben en el buzón de sugerencias, que no existe. Ningún director
+de carrera fue consultado durante la elaboración de este comunicado.
+
+👉 **El nuevo reglamento está en [El campeonato: 5 circuitos](#-el-campeonato-5-circuitos).
+Cierre: viernes 6/11.**
+
 > **Damas y caballeros, arranca la temporada.** Esto no es la Fórmula 1, pero el
 > espíritu es el mismo: cada escudería —su equipo— lleva su propio monoplaza a la
 > pista. Solo que acá el monoplaza es una **red Q entrenada** y el circuito es la
@@ -23,8 +47,8 @@ competencia corre la ronda final sobre seeds que nadie vio.
 
 | | |
 |---|---|
-| Apertura de submissions | _a confirmar_ |
-| Última submission (cierre) | _a confirmar_ — después de esta fecha no se mergean más PRs |
+| Apertura de submissions | Abierta |
+| Última submission (cierre) | **Viernes 6/11** — después de esta fecha no se mergean más PRs |
 | Ronda final (día D) | _a confirmar_ |
 
 ## Regla de oro
@@ -39,9 +63,9 @@ El PR puede tocar **únicamente** estos archivos, y solo dentro de la carpeta de
 Cualquier `.py`, `.ipynb`, `.sh`, notebook, o archivo fuera de esa carpeta hace fallar la validación.
 
 **Nombre de la carpeta (`<tu-equipo>`):** solo letras sin tildes, números, `-` y `_`
-(nada de espacios, `ñ` ni tildes). Ese nombre es el que aparece en el leaderboard y
-tiene que ser **siempre el mismo** en todas tus submissions. No toques carpetas de
-otros equipos.
+(nada de espacios, `ñ` ni tildes). Ese nombre es el que aparece en el leaderboard.
+Cada carpeta es **un auto**: para mejorar ese auto, subí la versión nueva en la misma
+carpeta. No toques carpetas de otros equipos.
 
 `metadata.json` (opcional) tiene este formato:
 
@@ -69,17 +93,47 @@ Tu red Q tiene que exportarse exactamente así:
 En `submissions/_ejemplo/export_example.py` tenés cómo exportar desde PyTorch
 (ese archivo es solo guía local; **no** lo suban al repo).
 
+## 🏁 El campeonato: 5 circuitos
+
+La pista estándar ya está resuelta: los de arriba están todos en el óptimo, a
+centésimas de paso entre sí. Así que esto pasa a ser un **campeonato**: la **misma
+policy** corre en 5 circuitos, que son variantes de MountainCar, y en cada uno se
+reparten puntos como en la F1.
+
+| Circuito | Qué cambia |
+|---|---|
+| **GP Estándar** | Nada: `MountainCar-v0` tal cual. |
+| **GP Largada libre** | Largan desde cualquier punto de la pista (posición entre -1.2 y 0.4) y con velocidad inicial (entre -0.05 y 0.05). |
+| **GP Lluvia** | Los sensores tienen ruido gaussiano: σ entre 0.01 y 0.03 en la posición y entre 0.001 y 0.003 en la velocidad. |
+| **GP Motor débil** | El motor rinde entre un 8% y un 12% menos (`force` entre 0.00088 y 0.00092, en vez de 0.001). |
+| **GP Otra pista** | La montaña cambia de forma: `cos(f·x)` con `f` entre 2.6 y 2.8 (en vez de 3). |
+
+- Los valores exactos se sortean **en cada episodio** dentro de esos rangos. Su red
+  ve solo `[posición, velocidad]`: no sabe en qué circuito está ni qué valores le
+  tocaron. Tiene que andar bien en todos.
+- **Puntos por posición en cada circuito:** 25, 18, 15, 12, 10, 8, 6, 4, 2, 1 (del 1°
+  al 10°). Gana el campeonato quien sume más. Desempate: más primeros puestos,
+  después más segundos, etc.
+- Cada circuito tiene su propia tabla en el [leaderboard](LEADERBOARD.md), con la
+  media, el IQM y el % de episodios en que **no llegaron a la meta**.
+- Pista para entrenar: lo que se aprende en una sola versión del entorno no
+  generaliza. Busquen **domain randomization**.
+
+Los parámetros exactos de cada circuito están en `config.yaml` (`circuits`) y la
+física en `harness/circuits.py`.
+
 ## Cómo evalúa
 
-- Una corrida por seed; con política y entorno deterministas, **más seeds = más muestras**.
+- Una corrida por seed en cada circuito; con política y entorno deterministas, **más seeds = más muestras**.
 - En MountainCar la recompensa es **-1 por paso** (máximo -200 si nunca llega a la meta).
   Por eso los retornos son **negativos**: cuanto **más cerca de 0**, mejor.
-  Una policy sin entrenar marca -200 fijo. El ranking por la media descendente ordena bien.
-- Métrica de ranking: **media** de los retornos, con intervalo de confianza al 95% por bootstrap.
-  Se reporta también el **IQM** (interquartile mean, robusto a outliers) como dato informativo.
+  Una policy sin entrenar marca -200 fijo.
+- En cada circuito se ordena por la **media** de los retornos (con intervalo de confianza
+  al 95% por bootstrap). Se reporta también el **IQM** (interquartile mean, robusto a
+  outliers) como dato informativo.
 - Hay dos conjuntos de seeds: las **públicas** (`seeds/public_seeds.txt`) para que
-  prueben, y un set **oculto** para el ranking real. El día D se usa un tercer set
-  de holdout que nadie vio.
+  prueben, y un set **oculto** para el ranking real. Las seeds ocultas **se rotan**
+  durante la competencia, y el día D se usa un set de holdout que nadie vio.
 
 ## Antes de empezar: forkeá el repo
 
@@ -111,11 +165,12 @@ pip install torch          # solo para exportar; el evaluador no lo usa
    ```bash
    python harness/validate_submission.py --onnx ruta/a/policy.onnx
    ```
-3. **Evaluá** con las seeds públicas (`seeds/public_seeds.txt`):
+3. **Evaluá** con las seeds públicas (`seeds/public_seeds.txt`), en los 5 circuitos:
    ```bash
    python harness/evaluate.py --onnx ruta/a/policy.onnx --team mi-equipo --out /tmp/result.json
    ```
-   Te imprime la media, el IQM y sus intervalos de confianza. El score con las seeds
+   Te imprime, para cada circuito, la media, el IQM, sus intervalos de confianza y el %
+   de episodios sin llegar a la meta. El score con las seeds
    ocultas va a ser parecido pero no idéntico. Usá `--out` para no ensuciar `results/`
    del repo (esa carpeta la escribe el bot).
 
@@ -140,11 +195,14 @@ git push -u origin submission-mi-equipo
    misma rama de tu fork: el PR se actualiza y el bot vuelve a correr solo.
 4. Cuando se mergea a `main`, se actualiza el [leaderboard](LEADERBOARD.md).
 
-Un PR = un equipo: si toca más de una carpeta de `submissions/`, se rechaza.
+Un PR = un auto: si toca más de una carpeta de `submissions/`, se rechaza.
 
-Pueden subir **múltiples policies** (PRs sucesivos); cuenta la última de cada equipo.
-Para una nueva versión, creá otra rama desde `upstream/main` actualizado (los dos
-primeros comandos de arriba) y abrí un PR nuevo.
+- **Versión nueva de un auto:** subila en la **misma carpeta**; cuenta la última.
+- **Varios autos por escudería:** se permiten. Cada carpeta corre y suma puntos por
+  separado en el campeonato (un PR por auto).
+
+Para cada PR nuevo, creá otra rama desde `upstream/main` actualizado (los dos primeros
+comandos de arriba).
 
 ## Errores comunes
 

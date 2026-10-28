@@ -96,7 +96,8 @@ jobs:
           python harness/evaluate.py \
             --onnx "$RUNNER_TEMP/policy.onnx" \
             --team "$TEAM" \
-            --out "$RUNNER_TEMP/result.json"
+            --out "$RUNNER_TEMP/result.json" \
+            --md "$RUNNER_TEMP/result.md"
 
       - name: Comentar en el PR
         if: always() && steps.validar.outputs.estado != ''
@@ -106,14 +107,13 @@ jobs:
           C="$RUNNER_TEMP/comment.md"
           case "$ESTADO" in
             valida)
-              if [ -f "$RUNNER_TEMP/result.json" ]; then
+              if [ -f "$RUNNER_TEMP/result.md" ]; then
                 {
-                  echo "✅ Submission válida — score de preview (seeds ocultas):"
-                  echo '```json'
-                  cat "$RUNNER_TEMP/result.json"
+                  echo "✅ Submission válida — score de preview en cada circuito (seeds ocultas):"
                   echo ''
-                  echo '```'
-                  echo "El board oficial se actualiza al mergear a \`main\`."
+                  cat "$RUNNER_TEMP/result.md"
+                  echo ''
+                  echo "Los puntos del campeonato dependen de la posición contra los demás equipos: se calculan al mergear a \`main\`, en el [leaderboard](https://github.com/$GH_REPO/blob/main/LEADERBOARD.md)."
                 } > "$C"
               else
                 echo "⚠️ La submission es válida pero la evaluación falló. Avisale al profe." > "$C"
@@ -176,7 +176,8 @@ jobs:
           git config user.email "rl-bot@users.noreply.github.com"
           git add results/ LEADERBOARD.md
           git diff --cached --quiet || git commit -m "Actualizar leaderboard [skip ci]"
-          # Si mientras evaluábamos se mergeó otro PR, main avanzó: traer esos
+          # Si mientras evaluábamos se mergeó otro PR, la rama avanzó: traer esos
           # commits antes de pushear (solo tocan submissions/, no hay conflicto).
-          git pull --rebase origin main
+          # Contra la rama que se está corriendo (main, o otra con workflow_dispatch).
+          git pull --rebase origin "$GITHUB_REF_NAME"
           git push

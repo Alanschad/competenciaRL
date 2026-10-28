@@ -25,3 +25,35 @@ onnx_opset: 17              # opset estándar; rechazamos custom ops
 max_steps_per_episode: 200
 bootstrap_resamples: 5000
 rank_metric: "mean"
+
+# ---- Campeonato: circuitos ----
+# Cada circuito es una variante de MountainCar. La MISMA policy corre en todos
+# (el contrato del ONNX no cambia). Detalle de cada parámetro en
+# harness/circuits.py. Un parámetro puede ser un número fijo o [min, max]: un
+# rango se sortea uniforme POR EPISODIO, determinista a partir de la seed.
+# En el README se publican los RANGOS, no los valores que tocan en cada seed.
+circuits:
+  - id: estandar
+    name: "GP Estándar"
+    desc: "MountainCar-v0 tal cual."
+    params: {}
+  - id: largada-libre
+    name: "GP Largada libre"
+    desc: "Largan desde cualquier punto de la pista y con velocidad inicial."
+    params: {start_pos: [-1.2, 0.4], start_vel: [-0.05, 0.05]}
+  - id: lluvia
+    name: "GP Lluvia"
+    desc: "Sensores con ruido gaussiano en posición y velocidad."
+    params: {obs_noise_pos: [0.01, 0.03], obs_noise_vel: [0.001, 0.003]}
+  - id: motor-debil
+    name: "GP Motor débil"
+    desc: "El motor rinde entre 8% y 12% menos."
+    params: {force: [0.00088, 0.00092]}
+  - id: otra-pista
+    name: "GP Otra pista"
+    desc: "La montaña cambia de forma: cos(f·x) con f entre 2.6 y 2.8 (en vez de 3)."
+    params: {freq: [2.6, 2.8]}
+
+# Puntos por posición en cada circuito (estilo F1). Del 11° para abajo, 0.
+# Desempate: más primeros puestos, después más segundos, etc.
+points: [25, 18, 15, 12, 10, 8, 6, 4, 2, 1]

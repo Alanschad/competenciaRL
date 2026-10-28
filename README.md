@@ -4,26 +4,16 @@
   <img src="gifs/mountain_car.gif" alt="Agente DQN escalando la montaña en MountainCar-v0" width="490">
 </p>
 
-## 📜 Comunicado oficial de la Federación Internacional de Autitos (FIA)
+## 📢 Cambio de reglamento: campeonato de 5 circuitos
 
-*Para conocimiento de todas las escuderías.*
+La pista estándar quedó resuelta: los primeros puestos terminan a menos de 0,05 pasos
+entre sí. Por eso, desde ahora la competencia es un **campeonato de 5 Grandes Premios**:
 
-Tras constatar con preocupación que **cinco equipos terminan a menos de 0,05 pasos
-entre sí**, la FIA, en uso de sus facultades discrecionales, sorpresivas e
-inapelables, resuelve **cambiar el reglamento a mitad de temporada**. Como hace
-siempre.
-
-Desde hoy la temporada pasa a ser un **campeonato de 5 Grandes Premios**. Las
-escuderías **no** podrán cambiar de auto entre circuitos: la misma policy corre en
-todos. La FIA aclara que esto no apunta a ningún equipo en particular, y en
-particular a ninguno.
-
-Las seeds se rotarán sin previo aviso. Las escuderías que hayan inscripto varios
-autos podrán seguir corriendo con todos, porque la FIA tampoco lee su propio
-reglamento.
-
-Los reclamos se reciben en el buzón de sugerencias, que no existe. Ningún director
-de carrera fue consultado durante la elaboración de este comunicado.
+- La **misma policy** corre en los 5 circuitos (no se elige una por circuito).
+- En cada circuito se reparten puntos estilo F1, y gana quien sume más.
+- Las seeds ocultas se **rotan** durante la competencia.
+- Se pueden tener **varios autos** (carpetas) por escudería; cada uno suma por separado.
+- No hace falta re-exportar nada: el contrato del `policy.onnx` no cambia.
 
 👉 **El nuevo reglamento está en [El campeonato: 5 circuitos](#-el-campeonato-5-circuitos).
 Cierre: viernes 6/11.**

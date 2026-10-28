@@ -1,0 +1,5 @@
+{
+  "team": "martin-bianchi",
+  "members": ["Martín Bianchi"],
+  "notes": "DQN con observación normalizada y reward shaping de energía"
+}

@@ -1,0 +1,1 @@
+{"team": "tomasbenavidez-otra-pista", "members": ["Tomás Benavidez"], "notes": "DQN puro (Double DQN + TD 3-step + shaping por potencial de energía + SIL), ajustado con domain randomization sobre los 5 circuitos; segundo auto de la escudería tomasbenavidez"}

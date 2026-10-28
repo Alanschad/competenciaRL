@@ -4,6 +4,30 @@
   <img src="gifs/mountain_car.gif" alt="Agente DQN escalando la montaña en MountainCar-v0" width="490">
 </p>
 
+## 📜 Comunicado oficial de la Federación Internacional de Autitos (FIA)
+
+*Para conocimiento de todas las escuderías.*
+
+Tras constatar con preocupación que **cinco equipos terminan a menos de 0,05 pasos
+entre sí**, la FIA, en uso de sus facultades discrecionales, sorpresivas e
+inapelables, resuelve **cambiar el reglamento a mitad de temporada**. Como hace
+siempre.
+
+Desde hoy la temporada pasa a ser un **campeonato de 5 Grandes Premios**. Las
+escuderías **no** podrán cambiar de auto entre circuitos: la misma policy corre en
+todos. La FIA aclara que esto no apunta a ningún equipo en particular, y en
+particular a ninguno.
+
+Las seeds se rotarán sin previo aviso. Las escuderías que hayan inscripto varios
+autos podrán seguir corriendo con todos, porque la FIA tampoco lee su propio
+reglamento.
+
+Los reclamos se reciben en el buzón de sugerencias, que no existe. Ningún director
+de carrera fue consultado durante la elaboración de este comunicado.
+
+👉 **El nuevo reglamento está en [El campeonato: 5 circuitos](#-el-campeonato-5-circuitos).
+Cierre: viernes 6/11.**
+
 > **Damas y caballeros, arranca la temporada.** Esto no es la Fórmula 1, pero el
 > espíritu es el mismo: cada escudería —su equipo— lleva su propio monoplaza a la
 > pista. Solo que acá el monoplaza es una **red Q entrenada** y el circuito es la
@@ -39,9 +63,9 @@ El PR puede tocar **únicamente** estos archivos, y solo dentro de la carpeta de
 Cualquier `.py`, `.ipynb`, `.sh`, notebook, o archivo fuera de esa carpeta hace fallar la validación.
 
 **Nombre de la carpeta (`<tu-equipo>`):** solo letras sin tildes, números, `-` y `_`
-(nada de espacios, `ñ` ni tildes). Ese nombre es el que aparece en el leaderboard y
-tiene que ser **siempre el mismo** en todas tus submissions. No toques carpetas de
-otros equipos.
+(nada de espacios, `ñ` ni tildes). Ese nombre es el que aparece en el leaderboard.
+Cada carpeta es **un auto**: para mejorar ese auto, subí la versión nueva en la misma
+carpeta. No toques carpetas de otros equipos.
 
 `metadata.json` (opcional) tiene este formato:
 
@@ -171,11 +195,14 @@ git push -u origin submission-mi-equipo
    misma rama de tu fork: el PR se actualiza y el bot vuelve a correr solo.
 4. Cuando se mergea a `main`, se actualiza el [leaderboard](LEADERBOARD.md).
 
-Un PR = un equipo: si toca más de una carpeta de `submissions/`, se rechaza.
+Un PR = un auto: si toca más de una carpeta de `submissions/`, se rechaza.
 
-Pueden subir **múltiples policies** (PRs sucesivos); cuenta la última de cada equipo.
-Para una nueva versión, creá otra rama desde `upstream/main` actualizado (los dos
-primeros comandos de arriba) y abrí un PR nuevo.
+- **Versión nueva de un auto:** subila en la **misma carpeta**; cuenta la última.
+- **Varios autos por escudería:** se permiten. Cada carpeta corre y suma puntos por
+  separado en el campeonato (un PR por auto).
+
+Para cada PR nuevo, creá otra rama desde `upstream/main` actualizado (los dos primeros
+comandos de arriba).
 
 ## Errores comunes
 

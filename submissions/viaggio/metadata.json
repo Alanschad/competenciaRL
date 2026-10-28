@@ -1,0 +1,7 @@
+{
+  "team": "viaggio",
+  "members": [
+    "Felipe Viaggio"
+  ],
+  "notes": "DQN con reward shaping basado en potencial, normalizacion de la observacion dentro de la red y mejor checkpoint por evaluacion en semillas propias (exp06_red128, semilla 59)"
+}

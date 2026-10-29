@@ -1,0 +1,1 @@
+{"team": "fium-V4", "members": ["Tomás Benavidez"], "notes": "DQN puro (Double DQN + TD 3-step + shaping por potencial de energía + SIL), especialista en largada-libre: fine-tune con domain randomization solo en ese circuito; auto de la escudería tomasbenavidez"}

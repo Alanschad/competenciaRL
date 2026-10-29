@@ -12,7 +12,9 @@ entre sí. Por eso, desde ahora la competencia es un **campeonato de 5 Grandes P
 - La **misma policy** corre en los 5 circuitos (no se elige una por circuito).
 - En cada circuito se reparten puntos estilo F1, y gana quien sume más.
 - Las seeds ocultas se **rotan** durante la competencia.
-- Se pueden tener **varios autos** (carpetas) por escudería; cada uno suma por separado.
+- Se pueden tener **varios autos** (carpetas) por escudería, pero **solo suma uno**: el
+  titular, que es su auto con más puntos. Los demás quedan de reserva y no le sacan
+  puestos a nadie.
 - No hace falta re-exportar nada: el contrato del `policy.onnx` no cambia.
 
 👉 **El nuevo reglamento está en [El campeonato: 5 circuitos](#-el-campeonato-5-circuitos).
@@ -104,6 +106,11 @@ reparten puntos como en la F1.
 - **Puntos por posición en cada circuito:** 25, 18, 15, 12, 10, 8, 6, 4, 2, 1 (del 1°
   al 10°). Gana el campeonato quien sume más. Desempate: más primeros puestos,
   después más segundos, etc.
+- **Un auto titular por escudería.** La escudería es la **cuenta de GitHub** que abrió el
+  PR. Si tienen varios autos, el bot elige como titular el que más puntos suma contra los
+  titulares de las demás escuderías. Solo el titular suma y ocupa posiciones; el resto
+  aparece en la tabla de **reserva** (con los puntos que haría si fuera el titular), pero no
+  le saca puestos a nadie. Tener más autos no da más puntos.
 - Cada circuito tiene su propia tabla en el [leaderboard](LEADERBOARD.md), con la
   media, el IQM y el % de episodios en que **no llegaron a la meta**.
 - Pista para entrenar: lo que se aprende en una sola versión del entorno no
@@ -188,8 +195,8 @@ git push -u origin submission-mi-equipo
 Un PR = un auto: si toca más de una carpeta de `submissions/`, se rechaza.
 
 - **Versión nueva de un auto:** subila en la **misma carpeta**; cuenta la última.
-- **Varios autos por escudería:** se permiten. Cada carpeta corre y suma puntos por
-  separado en el campeonato (un PR por auto).
+- **Varios autos por escudería:** se permiten (un PR por auto), pero solo suma el
+  titular. Ver [El campeonato](#-el-campeonato-5-circuitos).
 
 Para cada PR nuevo, creá otra rama desde `upstream/main` actualizado (los dos primeros
 comandos de arriba).

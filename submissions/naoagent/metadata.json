@@ -1,1 +1,1 @@
-{"team": "naoagent", "members": ["Naomi Couriel"], "notes": "DQN + target network cada 500 pasos + normalización dentro de la red + retornos 3-step; mejor checkpoint elegido por validación propia"}
+{"team": "naoagent", "members": ["Naomi Couriel"], "notes": "Ensemble que promedia los Q de 8 DQN, varias entrenadas con domain randomization sobre los 5 circuitos, elegidas de a una para el campeonato"}

@@ -1,0 +1,1 @@
+{"team": "tomas-castro-equilibrado", "members": ["Tomás Agustín Castro"], "notes": "DQN con domain randomization de los 5 circuitos, normalización dentro de la red, retornos de 3 pasos y ensamble de 5 redes elegido para rendir parejo en todos los circuitos"}

@@ -154,8 +154,12 @@ jobs:
     steps:
       # Historia completa: la escudería de cada auto sale de los merge commits
       # de origin/main (harness/escuderias.py).
+      # ref = la PUNTA de la rama, no el commit del evento: una corrida que
+      # estuvo encolada arranca desde el board que commiteó la anterior (si no,
+      # las dos regeneran LEADERBOARD.md y el rebase del final choca).
       - uses: actions/checkout@v4
         with:
+          ref: ${{ github.ref_name }}
           fetch-depth: 0
       - uses: actions/setup-python@v5
         with: { python-version: "3.12" }

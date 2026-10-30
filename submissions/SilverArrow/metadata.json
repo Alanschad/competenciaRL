@@ -1,0 +1,1 @@
+{"team": "SilverArrow", "members": ["Valentino Nallib Fadel"], "notes": "Ensamble de 6 DQN (Double + n-step 3 + PER + target network, normalizacion dentro de la red) entrenadas con domain randomization sobre los 5 circuitos (largada, velocidad inicial, ruido de sensores, potencia y forma de pista sorteados por episodio); miembros elegidos por puntos simulados del campeonato"}

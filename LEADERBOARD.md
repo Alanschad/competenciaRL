@@ -1,6 +1,6 @@
 # 🏆 Leaderboard — Campeonato RL (DQN)
 
-Entorno base: `MountainCar-v0` · 5 circuitos · Ranking por **MEDIA** en cada circuito · Actualizado: 2026-10-30 13:34 UTC
+Entorno base: `MountainCar-v0` · 5 circuitos · Ranking por **MEDIA** en cada circuito · Actualizado: 2026-10-30 14:12 UTC
 
 Puntos por circuito: 25, 18, 15, 12, 10, 8, 6, 4, 2, 1 (del 1° al 10°). La misma policy corre en todos los circuitos. Detalle de cada uno en el README.
 
@@ -66,6 +66,7 @@ No suman ni ocupan posiciones. Las posiciones son las que tendría cada auto si 
 | ivan-de-pineda-103 | RamaMusic | 32 | 14° | 10° (1) | 1° (25) | 7° (6) | 13° |
 | ivan-de-pineda-es-inocente-con-features | RamaMusic | 32 | 3° (15) | 10° (1) | 5° (10) | 19° | 7° (6) |
 | ivan-de-pineda-es-inocente-sin-features | RamaMusic | 31 | 3° (15) | 12° | 5° (10) | 15° | 7° (6) |
+| ivan-de-pineda-107 | RamaMusic | 21 | 19° | 10° (1) | 4° (12) | 6° (8) | 13° |
 | domabot | Sdomato | 0 | 18° | 30° | 29° | 29° | 21° |
 | fium-V2 | tomasbenavidez | 25 | 26° | 28° | 27° | 1° (25) | 29° |
 | fium-V1 | tomasbenavidez | 18 | 21° | 14° | 23° | 30° | 2° (18) |
@@ -117,6 +118,7 @@ _MountainCar-v0 tal cual._
 | R | ivan-de-pineda-104 | RamaMusic | — | -99.307 | -103.018 | 0.0% | -106.0 | -83.0 | 1000 | +1.879 |
 | 19 | domabot2 | Sdomato | 0 | -99.526 | -103.570 | 0.0% | -104.0 | -84.0 | 1000 | +2.098 |
 | R | naoagent | naomicouriel | — | -99.560 | -103.346 | 0.0% | -105.0 | -83.0 | 1000 | +2.132 |
+| R | ivan-de-pineda-107 | RamaMusic | — | -99.620 | -103.046 | 0.0% | -107.0 | -83.0 | 1000 | +2.192 |
 | 20 | Franco-Colapinto | famatodlr | 0 | -99.734 | -103.508 | 0.0% | -107.0 | -83.0 | 1000 | +2.306 |
 | 21 | tomas-castro | tommycass | 0 | -100.025 | -100.934 | 0.0% | -147.0 | -83.0 | 1000 | +2.597 |
 | R | lein | matilein | — | -100.036 | -103.614 | 0.0% | -105.0 | -84.0 | 1000 | +2.608 |
@@ -156,6 +158,7 @@ _Largan desde cualquier punto de la pista y con velocidad inicial._
 | R | fium-V4 | tomasbenavidez | — | -57.747 | -59.064 | 0.0% | -132.0 | -3.0 | 1000 | +0.572 |
 | 8 | sb3zoo | Gabo-Tor | 4 | -57.810 | -59.354 | 0.0% | -129.0 | -3.0 | 1000 | +0.635 |
 | 9 | Franco-Colapinto | famatodlr | 2 | -57.829 | -59.186 | 0.0% | -142.0 | -3.0 | 1000 | +0.654 |
+| R | ivan-de-pineda-107 | RamaMusic | — | -57.837 | -59.074 | 0.0% | -152.0 | -3.0 | 1000 | +0.662 |
 | R | tomas-castro-equilibrado | tommycass | — | -57.837 | -59.008 | 0.0% | -154.0 | -3.0 | 1000 | +0.662 |
 | R | Alan-Schadan | Alanschad | — | -57.841 | -59.452 | 0.0% | -186.0 | -3.0 | 1000 | +0.666 |
 | R | ivan-de-pineda-es-inocente-con-features | RamaMusic | — | -57.895 | -59.186 | 0.0% | -176.0 | -3.0 | 1000 | +0.720 |
@@ -216,6 +219,7 @@ _Sensores con ruido gaussiano en posición y velocidad._
 | 3 | bravo-andres | Andresbravo9 | 15 | -101.102 | -102.880 | 0.0% | -162.0 | -83.0 | 1000 | +0.531 |
 | R | naoagent-greedy | naomicouriel | — | -101.103 | -101.656 | 0.0% | -179.0 | -83.0 | 1000 | +0.532 |
 | 4 | domabot2 | Sdomato | 12 | -101.321 | -103.686 | 0.0% | -178.0 | -83.0 | 1000 | +0.750 |
+| R | ivan-de-pineda-107 | RamaMusic | — | -101.429 | -103.294 | 0.0% | -188.0 | -83.0 | 1000 | +0.858 |
 | 5 | valentino-pettazi | ValenPettaz1 | 10 | -101.441 | -103.492 | 0.0% | -160.0 | -83.0 | 1000 | +0.870 |
 | R | naoagent-ensemble | naomicouriel | — | -101.768 | -101.994 | 0.0% | -189.0 | -83.0 | 1000 | +1.197 |
 | R | ivan-de-pineda-es-inocente-sin-cos | RamaMusic | — | -101.808 | -102.138 | 0.0% | -189.0 | -83.0 | 1000 | +1.237 |
@@ -277,6 +281,7 @@ _El motor rinde entre 8% y 12% menos._
 | R | bravo-andres-r1 | Andresbravo9 | — | -116.829 | -111.446 | 0.0% | -193.0 | -92.0 | 1000 | +4.551 |
 | R | bravo-andres-r2 | Andresbravo9 | — | -116.930 | -111.028 | 0.0% | -182.0 | -92.0 | 1000 | +4.652 |
 | R | tomas-castro-equilibrado | tommycass | — | -117.999 | -110.830 | 0.1% | -200.0 | -92.0 | 1000 | +5.721 |
+| R | ivan-de-pineda-107 | RamaMusic | — | -118.047 | -110.864 | 0.0% | -195.0 | -92.0 | 1000 | +5.769 |
 | R | ivan-de-pineda-106 | RamaMusic | — | -118.243 | -110.816 | 0.2% | -200.0 | -92.0 | 1000 | +5.965 |
 | R | ivan-de-pineda-104 | RamaMusic | — | -118.274 | -110.740 | 0.3% | -200.0 | -92.0 | 1000 | +5.996 |
 | R | ivan-de-pineda-105 | RamaMusic | — | -118.723 | -111.188 | 0.3% | -200.0 | -92.0 | 1000 | +6.445 |
@@ -358,6 +363,7 @@ _La montaña cambia de forma: cos(f·x) con f entre 2.6 y 2.8 (en vez de 3)._
 | R | tomas-castro-equilibrado | tommycass | — | -101.662 | -105.994 | 0.0% | -113.0 | -82.0 | 1000 | +5.681 |
 | R | ivan-de-pineda-103 | RamaMusic | — | -101.690 | -105.754 | 0.0% | -113.0 | -82.0 | 1000 | +5.709 |
 | R | bravo-andres-r2 | Andresbravo9 | — | -101.889 | -106.284 | 0.0% | -112.0 | -82.0 | 1000 | +5.908 |
+| R | ivan-de-pineda-107 | RamaMusic | — | -101.930 | -106.220 | 0.0% | -113.0 | -82.0 | 1000 | +5.949 |
 | 14 | salim | athinasalimm | 0 | -102.124 | -104.612 | 0.0% | -144.0 | -84.0 | 1000 | +6.143 |
 | 15 | jazgeller | jazgeller | 0 | -102.260 | -104.368 | 0.0% | -119.0 | -83.0 | 1000 | +6.279 |
 | 16 | Franco-Colapinto | famatodlr | 0 | -102.281 | -107.276 | 0.0% | -114.0 | -82.0 | 1000 | +6.300 |

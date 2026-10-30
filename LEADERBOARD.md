@@ -1,6 +1,6 @@
 # 🏆 Leaderboard — Campeonato RL (DQN)
 
-Entorno base: `MountainCar-v0` · 5 circuitos · Ranking por **MEDIA** en cada circuito · Actualizado: 2026-10-30 15:49 UTC
+Entorno base: `MountainCar-v0` · 5 circuitos · Ranking por **MEDIA** en cada circuito · Actualizado: 2026-10-30 15:54 UTC
 
 Puntos por circuito: 25, 18, 15, 12, 10, 8, 6, 4, 2, 1 (del 1° al 10°). La misma policy corre en todos los circuitos. Detalle de cada uno en el README.
 
@@ -58,6 +58,7 @@ No suman ni ocupan posiciones. Las posiciones son las que tendría cada auto si 
 | Wachinators-v3 | ginerJuanUdesa | 40 | 24° | 2° (18) | 8° (4) | 2° (18) | 30° |
 | Wachinators-v2 | ginerJuanUdesa | 32 | 24° | 5° (10) | 8° (4) | 2° (18) | 29° |
 | Wachinators-v1 | ginerJuanUdesa | 24 | 14° | 7° (6) | 24° | 27° | 2° (18) |
+| Wachinator-v1 | ginerJuanUdesa | 18 | 27° | 12° | 31° | 31° | 2° (18) |
 | lein | matilein | 23 | 22° | 21° | 3° (15) | 6° (8) | 21° |
 | lein3 | matilein | 18 | 30° | 12° | 25° | 21° | 2° (18) |
 | naoagent-greedy3 | naomicouriel | 41 | 1° (25) | 15° | 7° (6) | 20° | 5° (10) |
@@ -155,6 +156,7 @@ _MountainCar-v0 tal cual._
 | R | Alan-Schadan-v3 | Alanschad | — | -101.561 | -103.852 | 0.0% | -104.0 | -83.0 | 1000 | +4.133 |
 | 26 | valentino-pettazi-5 | ValenPettaz1 | 0 | -101.615 | -104.252 | 0.0% | -105.0 | -84.0 | 1000 | +4.187 |
 | 27 | Alan-Schadan-v4 | Alanschad | 0 | -101.753 | -103.976 | 0.0% | -104.0 | -83.0 | 1000 | +4.325 |
+| R | Wachinator-v1 | ginerJuanUdesa | — | -102.682 | -103.352 | 0.0% | -158.0 | -83.0 | 1000 | +5.254 |
 | R | fium-V2 | tomasbenavidez | — | -102.789 | -104.438 | 0.0% | -106.0 | -84.0 | 1000 | +5.361 |
 | 28 | joaco-di-cola | joaco1212004 | 0 | -102.982 | -107.744 | 0.0% | -109.0 | -83.0 | 1000 | +5.554 |
 | 29 | valeriano | Isivaleriano | 0 | -104.107 | -106.666 | 0.0% | -113.0 | -84.0 | 1000 | +6.679 |
@@ -206,6 +208,7 @@ _Largan desde cualquier punto de la pista y con velocidad inicial._
 | R | lein3 | matilein | — | -58.114 | -59.438 | 0.0% | -149.0 | -3.0 | 1000 | +0.972 |
 | 12 | lein2 | matilein | 0 | -58.148 | -59.228 | 0.0% | -187.0 | -3.0 | 1000 | +1.006 |
 | R | valentino-pettazi-2 | ValenPettaz1 | — | -58.206 | -59.310 | 0.0% | -160.0 | -3.0 | 1000 | +1.064 |
+| R | Wachinator-v1 | ginerJuanUdesa | — | -58.210 | -59.808 | 0.0% | -122.0 | -3.0 | 1000 | +1.068 |
 | R | naoagent-greedy | naomicouriel | — | -58.228 | -59.064 | 0.0% | -182.0 | -3.0 | 1000 | +1.086 |
 | 13 | gonzalezds | mariagonzalezdelsolar | 0 | -58.248 | -60.034 | 0.0% | -152.0 | -3.0 | 1000 | +1.106 |
 | R | ivan-de-pineda-es-inocente-sin-features | RamaMusic | — | -58.294 | -59.248 | 0.0% | -186.0 | -3.0 | 1000 | +1.152 |
@@ -313,6 +316,7 @@ _Sensores con ruido gaussiano en posición y velocidad._
 | R | domabot | Sdomato | — | -111.638 | -105.518 | 0.3% | -200.0 | -83.0 | 1000 | +11.361 |
 | 30 | Wachinators-v4 | ginerJuanUdesa | 0 | -115.062 | -112.304 | 0.5% | -200.0 | -83.0 | 1000 | +14.785 |
 | 31 | auto-cipre | CiprianoOss | 0 | -116.572 | -112.482 | 0.0% | -174.0 | -83.0 | 1000 | +16.295 |
+| R | Wachinator-v1 | ginerJuanUdesa | — | -125.074 | -122.782 | 1.0% | -200.0 | -83.0 | 1000 | +24.797 |
 | 32 | ion_h_RL_TP2 | 72Ion | 0 | -148.168 | -140.578 | 4.1% | -200.0 | -125.0 | 1000 | +47.891 |
 
 ## GP Motor débil
@@ -389,6 +393,7 @@ _El motor rinde entre 8% y 12% menos._
 | R | domabot | Sdomato | — | -138.948 | -133.360 | 0.6% | -200.0 | -111.0 | 1000 | +28.168 |
 | 31 | matbr | mateobramer | 0 | -140.219 | -136.596 | 0.2% | -200.0 | -99.0 | 1000 | +29.439 |
 | R | fium-V1 | tomasbenavidez | — | -140.761 | -142.958 | 0.7% | -200.0 | -92.0 | 1000 | +29.981 |
+| R | Wachinator-v1 | ginerJuanUdesa | — | -144.886 | -148.320 | 0.0% | -191.0 | -92.0 | 1000 | +34.106 |
 | 32 | ion_h_RL_TP2 | 72Ion | 0 | -154.574 | -147.024 | 10.1% | -200.0 | -134.0 | 1000 | +43.794 |
 
 ## GP Otra pista
@@ -399,6 +404,7 @@ _La montaña cambia de forma: cos(f·x) con f entre 2.6 y 2.8 (en vez de 3)._
 |---|------|-----------|----:|-------|-----|-----------:|-----|-----|-----------|-----------|
 | 1 | lein2 | matilein | 25 | -95.981 | -96.168 | 0.0% | -109.0 | -82.0 | 1000 | — |
 | 2 | Wachinators-v4 | ginerJuanUdesa | 18 | -96.035 | -96.482 | 0.0% | -110.0 | -82.0 | 1000 | +0.054 |
+| R | Wachinator-v1 | ginerJuanUdesa | — | -96.259 | -97.350 | 0.0% | -108.0 | -82.0 | 1000 | +0.278 |
 | R | lein3 | matilein | — | -96.393 | -96.448 | 0.0% | -113.0 | -83.0 | 1000 | +0.412 |
 | R | Wachinators-v1 | ginerJuanUdesa | — | -96.415 | -97.494 | 0.0% | -109.0 | -82.0 | 1000 | +0.434 |
 | R | fium-V1 | tomasbenavidez | — | -97.121 | -97.652 | 0.0% | -111.0 | -83.0 | 1000 | +1.140 |

@@ -1,6 +1,6 @@
 # 🏆 Leaderboard — Campeonato RL (DQN)
 
-Entorno base: `MountainCar-v0` · 5 circuitos · Ranking por **MEDIA** en cada circuito · Actualizado: 2026-10-30 17:45 UTC
+Entorno base: `MountainCar-v0` · 5 circuitos · Ranking por **MEDIA** en cada circuito · Actualizado: 2026-10-30 17:50 UTC
 
 Puntos por circuito: 25, 18, 15, 12, 10, 8, 6, 4, 2, 1 (del 1° al 10°). La misma policy corre en todos los circuitos. Detalle de cada uno en el README.
 
@@ -52,8 +52,8 @@ No suman ni ocupan posiciones. Las posiciones son las que tendría cada auto si 
 | Alan-Schadan-v3 | Alanschad | 33 | 26° | 6° (8) | 13° | 1° (25) | 30° |
 | Alan-Schadan-v2 | Alanschad | 26 | 25° | 6° (8) | 13° | 2° (18) | 29° |
 | Alan-Schadan | Alanschad | 7 | 7° (6) | 10° (1) | 24° | 19° | 13° |
+| bravo-andres-r2 | Andresbravo9 | 36 | 22° | 3° (15) | 7° (6) | 3° (15) | 23° |
 | bravo-andres-r1 | Andresbravo9 | 26 | 13° | 6° (8) | 6° (8) | 5° (10) | 13° |
-| bravo-andres-r2 | Andresbravo9 | 19 | 18° | 6° (8) | 10° (1) | 5° (10) | 15° |
 | DeCruz_v2 | BrunoDC-dev | 23 | 11° | 6° (8) | 15° | 26° | 3° (15) |
 | Wachinators-v4 | ginerJuanUdesa | 43 | 24° | 1° (25) | 30° | 29° | 2° (18) |
 | Wachinators-v3 | ginerJuanUdesa | 42 | 24° | 2° (18) | 7° (6) | 2° (18) | 30° |
@@ -130,7 +130,6 @@ _MountainCar-v0 tal cual._
 | 16 | DeCruz | BrunoDC-dev | 0 | -98.927 | -102.420 | 0.0% | -104.0 | -83.0 | 1000 | +1.499 |
 | 17 | tomas-castro-equilibrado | tommycass | 0 | -99.025 | -102.460 | 0.0% | -106.0 | -83.0 | 1000 | +1.597 |
 | 18 | sb3zoo | Gabo-Tor | 0 | -99.114 | -101.784 | 0.0% | -108.0 | -84.0 | 1000 | +1.686 |
-| R | bravo-andres-r2 | Andresbravo9 | — | -99.185 | -102.602 | 0.0% | -107.0 | -83.0 | 1000 | +1.757 |
 | R | domabot | Sdomato | — | -99.252 | -101.780 | 0.0% | -106.0 | -84.0 | 1000 | +1.824 |
 | 19 | matbr | mateobramer | 0 | -99.276 | -102.014 | 0.0% | -106.0 | -84.0 | 1000 | +1.848 |
 | R | valentino-pettazi-2 | ValenPettaz1 | — | -99.294 | -103.312 | 0.0% | -105.0 | -84.0 | 1000 | +1.866 |
@@ -145,6 +144,7 @@ _MountainCar-v0 tal cual._
 | R | tomas-castro | tommycass | — | -100.025 | -100.934 | 0.0% | -147.0 | -83.0 | 1000 | +2.597 |
 | R | lein | matilein | — | -100.036 | -103.614 | 0.0% | -105.0 | -84.0 | 1000 | +2.608 |
 | R | fium-V1 | tomasbenavidez | — | -100.090 | -102.276 | 0.0% | -127.0 | -84.0 | 1000 | +2.662 |
+| R | bravo-andres-r2 | Andresbravo9 | — | -100.113 | -102.910 | 0.0% | -104.0 | -83.0 | 1000 | +2.685 |
 | R | fium-V4 | tomasbenavidez | — | -100.277 | -103.484 | 0.0% | -105.0 | -83.0 | 1000 | +2.849 |
 | R | valentino-pettazi | ValenPettaz1 | — | -100.304 | -103.054 | 0.0% | -105.0 | -83.0 | 1000 | +2.876 |
 | 23 | maxi | maxividela2577 | 0 | -100.353 | -104.166 | 0.0% | -107.0 | -84.0 | 1000 | +2.925 |
@@ -177,12 +177,12 @@ _Largan desde cualquier punto de la pista y con velocidad inicial._
 | R | Wachinators-v4 | ginerJuanUdesa | — | -57.142 | -58.864 | 0.0% | -124.0 | -3.0 | 1000 | +0.000 |
 | 2 | DeCruz | BrunoDC-dev | 18 | -57.175 | -58.862 | 0.0% | -119.0 | -3.0 | 1000 | +0.033 |
 | R | Wachinators-v3 | ginerJuanUdesa | — | -57.227 | -58.850 | 0.0% | -133.0 | -3.0 | 1000 | +0.085 |
+| R | bravo-andres-r2 | Andresbravo9 | — | -57.320 | -58.908 | 0.0% | -128.0 | -3.0 | 1000 | +0.178 |
 | 3 | bravo-andres | Andresbravo9 | 15 | -57.341 | -58.936 | 0.0% | -149.0 | -3.0 | 1000 | +0.199 |
 | 4 | vanafa | VANAFA | 12 | -57.351 | -59.018 | 0.0% | -141.0 | -3.0 | 1000 | +0.209 |
 | 5 | Alan-Schadan-v4 | Alanschad | 10 | -57.393 | -59.152 | 0.0% | -112.0 | -3.0 | 1000 | +0.251 |
 | 5 | salim | athinasalimm | 10 | -57.393 | -58.892 | 0.0% | -142.0 | -3.0 | 1000 | +0.251 |
 | R | SilverArrow | VANAFA | — | -57.394 | -58.948 | 0.0% | -143.0 | -3.0 | 1000 | +0.252 |
-| R | bravo-andres-r2 | Andresbravo9 | — | -57.418 | -58.916 | 0.0% | -136.0 | -3.0 | 1000 | +0.276 |
 | R | Wachinators-v2 | ginerJuanUdesa | — | -57.430 | -58.880 | 0.0% | -150.0 | -3.0 | 1000 | +0.288 |
 | R | Alan-Schadan-v3 | Alanschad | — | -57.463 | -59.186 | 0.0% | -121.0 | -3.0 | 1000 | +0.321 |
 | R | tomas-castro | tommycass | — | -57.466 | -58.982 | 0.0% | -143.0 | -3.0 | 1000 | +0.324 |
@@ -277,12 +277,12 @@ _Sensores con ruido gaussiano en posición y velocidad._
 | R | naoagent-greedy3 | naomicouriel | — | -102.200 | -101.928 | 0.0% | -174.0 | -83.0 | 1000 | +2.048 |
 | R | ivan-de-pineda-es-inocente-con-features | RamaMusic | — | -102.255 | -101.862 | 0.0% | -183.0 | -83.0 | 1000 | +2.103 |
 | 6 | leon-alderete | joaquinleondev | 8 | -102.486 | -102.160 | 0.0% | -183.0 | -83.0 | 1000 | +2.334 |
+| R | bravo-andres-r2 | Andresbravo9 | — | -102.565 | -103.570 | 0.0% | -166.0 | -83.0 | 1000 | +2.413 |
 | R | Wachinators-v2 | ginerJuanUdesa | — | -102.731 | -103.472 | 0.0% | -163.0 | -83.0 | 1000 | +2.579 |
 | R | Wachinators-v3 | ginerJuanUdesa | — | -102.857 | -103.572 | 0.0% | -175.0 | -83.0 | 1000 | +2.705 |
 | 7 | joaco-di-cola | joaco1212004 | 6 | -103.230 | -105.882 | 0.0% | -192.0 | -83.0 | 1000 | +3.078 |
 | 7 | naoagent-greedy2 | naomicouriel | 6 | -103.230 | -102.098 | 0.0% | -177.0 | -83.0 | 1000 | +3.078 |
 | 9 | Franco-Colapinto | famatodlr | 2 | -103.258 | -103.960 | 0.0% | -167.0 | -83.0 | 1000 | +3.106 |
-| R | bravo-andres-r2 | Andresbravo9 | — | -103.324 | -103.756 | 0.0% | -166.0 | -83.0 | 1000 | +3.172 |
 | 10 | mateofreire | mateofreire | 1 | -103.743 | -104.048 | 0.0% | -167.0 | -84.0 | 1000 | +3.591 |
 | 11 | maxi | maxividela2577 | 0 | -103.774 | -104.896 | 0.0% | -194.0 | -84.0 | 1000 | +3.622 |
 | 12 | DeCruz | BrunoDC-dev | 0 | -103.804 | -103.392 | 0.0% | -176.0 | -83.0 | 1000 | +3.652 |
@@ -337,6 +337,7 @@ _El motor rinde entre 8% y 12% menos._
 | 2 | valentino-pettazi-5 | ValenPettaz1 | 18 | -112.123 | -111.516 | 0.0% | -180.0 | -92.0 | 1000 | +1.343 |
 | R | Alan-Schadan-v2 | Alanschad | — | -112.278 | -111.942 | 0.1% | -200.0 | -92.0 | 1000 | +1.498 |
 | R | valentino-pettazi | ValenPettaz1 | — | -112.549 | -110.862 | 0.0% | -171.0 | -92.0 | 1000 | +1.769 |
+| R | bravo-andres-r2 | Andresbravo9 | — | -112.686 | -111.022 | 0.1% | -200.0 | -92.0 | 1000 | +1.906 |
 | R | naoagent | naomicouriel | — | -114.634 | -110.542 | 0.4% | -200.0 | -92.0 | 1000 | +3.854 |
 | R | valentino-pettazi-4 | ValenPettaz1 | — | -114.846 | -110.730 | 0.6% | -200.0 | -92.0 | 1000 | +4.066 |
 | 3 | DeCruz | BrunoDC-dev | 15 | -115.643 | -111.288 | 0.2% | -200.0 | -92.0 | 1000 | +4.863 |
@@ -346,7 +347,6 @@ _El motor rinde entre 8% y 12% menos._
 | R | lein | matilein | — | -116.266 | -110.862 | 0.2% | -200.0 | -92.0 | 1000 | +5.486 |
 | R | fium-V4 | tomasbenavidez | — | -116.694 | -112.252 | 0.4% | -200.0 | -93.0 | 1000 | +5.914 |
 | R | bravo-andres-r1 | Andresbravo9 | — | -116.829 | -111.446 | 0.0% | -193.0 | -92.0 | 1000 | +6.049 |
-| R | bravo-andres-r2 | Andresbravo9 | — | -116.930 | -111.028 | 0.0% | -182.0 | -92.0 | 1000 | +6.150 |
 | 5 | tomas-castro-equilibrado | tommycass | 10 | -117.999 | -110.830 | 0.1% | -200.0 | -92.0 | 1000 | +7.219 |
 | R | ivan-de-pineda-107 | RamaMusic | — | -118.047 | -110.864 | 0.0% | -195.0 | -92.0 | 1000 | +7.267 |
 | R | valentino-pettazi-2 | ValenPettaz1 | — | -118.077 | -111.790 | 0.3% | -200.0 | -92.0 | 1000 | +7.297 |
@@ -442,7 +442,6 @@ _La montaña cambia de forma: cos(f·x) con f entre 2.6 y 2.8 (en vez de 3)._
 | R | ivan-de-pineda-106 | RamaMusic | — | -101.539 | -105.534 | 0.0% | -113.0 | -82.0 | 1000 | +5.558 |
 | 15 | tomas-castro-equilibrado | tommycass | 0 | -101.662 | -105.994 | 0.0% | -113.0 | -82.0 | 1000 | +5.681 |
 | R | ivan-de-pineda-103 | RamaMusic | — | -101.690 | -105.754 | 0.0% | -113.0 | -82.0 | 1000 | +5.709 |
-| R | bravo-andres-r2 | Andresbravo9 | — | -101.889 | -106.284 | 0.0% | -112.0 | -82.0 | 1000 | +5.908 |
 | R | ivan-de-pineda-107 | RamaMusic | — | -101.930 | -106.220 | 0.0% | -113.0 | -82.0 | 1000 | +5.949 |
 | 16 | salim | athinasalimm | 0 | -102.124 | -104.612 | 0.0% | -144.0 | -84.0 | 1000 | +6.143 |
 | 17 | jazgeller | jazgeller | 0 | -102.260 | -104.368 | 0.0% | -119.0 | -83.0 | 1000 | +6.279 |
@@ -462,6 +461,7 @@ _La montaña cambia de forma: cos(f·x) con f entre 2.6 y 2.8 (en vez de 3)._
 | R | domabot | Sdomato | — | -104.832 | -108.060 | 0.0% | -121.0 | -83.0 | 1000 | +8.851 |
 | R | valentino-pettazi-4 | ValenPettaz1 | — | -106.426 | -110.196 | 0.1% | -200.0 | -83.0 | 1000 | +10.445 |
 | 23 | agusamblard | agusamblard | 0 | -106.427 | -107.062 | 0.6% | -200.0 | -85.0 | 1000 | +10.446 |
+| R | bravo-andres-r2 | Andresbravo9 | — | -109.398 | -109.426 | 3.1% | -200.0 | -83.0 | 1000 | +13.417 |
 | 24 | valeriano | Isivaleriano | 0 | -109.701 | -111.716 | 2.2% | -200.0 | -84.0 | 1000 | +13.720 |
 | R | valentino-pettazi | ValenPettaz1 | — | -109.825 | -110.946 | 1.8% | -200.0 | -83.0 | 1000 | +13.844 |
 | 25 | valentino-pettazi-5 | ValenPettaz1 | 0 | -110.999 | -111.124 | 2.8% | -200.0 | -84.0 | 1000 | +15.018 |

@@ -6,12 +6,21 @@ Campeonato estilo F1: en cada circuito (config.yaml -> circuits) se ordena por
 la métrica de ranking (mean por defecto) y se reparten puntos por posición
 (config.yaml -> points). Gana quien sume más. Desempate: más primeros puestos,
 después más segundos, etc.
+
+Un auto TITULAR por escudería (cuenta de GitHub, ver escuderias.py): es el
+único que suma y ocupa posiciones. Los demás son de RESERVA: se muestran, pero
+no le sacan puestos a nadie. El titular es el auto que más puntos sumaría
+corriendo contra los titulares de las otras escuderías (se itera hasta que la
+elección no cambia).
 """
 import json
+from collections import defaultdict
 from datetime import datetime, timezone
 from pathlib import Path
 
 import yaml
+
+from escuderias import escuderias
 
 ROOT = Path(__file__).resolve().parent.parent
 CFG = yaml.safe_load((ROOT / "config.yaml").read_text())
@@ -52,6 +61,53 @@ def points_for(pos: int) -> int:
     return POINTS[pos - 1] if pos <= len(POINTS) else 0
 
 
+def positions_vs(car: dict, field: list[dict]) -> dict[str, int]:
+    """Posición de `car` en cada circuito si corriera contra `field` (1 + los que le ganan)."""
+    out = {}
+    for c in CIRCUITS:
+        cid = c["id"]
+        if cid in car["circuits"]:
+            v = car["circuits"][cid][METRIC]
+            out[cid] = 1 + sum(1 for r in field if cid in r["circuits"] and r["circuits"][cid][METRIC] > v)
+    return out
+
+
+def champ_key(pos: dict[str, int], n: int) -> tuple:
+    """Orden del campeonato: más puntos; desempate F1 por countback."""
+    ps = list(pos.values())
+    return (-sum(points_for(p) for p in ps), tuple(-ps.count(k) for k in range(1, n + 1)))
+
+
+def pick_titulares(results: list[dict], owner: dict[str, str]) -> dict[str, dict]:
+    """{escudería: result del titular}."""
+    by_owner = defaultdict(list)
+    for r in results:
+        by_owner[owner[r["team"]]].append(r)
+    n = len(results)
+
+    def key_vs(r, tit):
+        rivals = [t for o, t in tit.items() if o != owner[r["team"]]]
+        return (champ_key(positions_vs(r, rivals), n), r["team"])
+
+    # Arranque: el mejor de cada escudería con todos los autos en pista.
+    tit = {o: min(cars, key=lambda r: (champ_key(positions_vs(r, results), n), r["team"]))
+           for o, cars in by_owner.items()}
+    for _ in range(20):
+        new = {o: min(cars, key=lambda r: key_vs(r, tit)) for o, cars in by_owner.items()}
+        if all(new[o]["team"] == tit[o]["team"] for o in tit):
+            break
+        tit = new
+    return tit
+
+
+def cells(pos: dict[str, int]) -> list[str]:
+    out = []
+    for c in CIRCUITS:
+        p = pos.get(c["id"])
+        out.append("—" if p is None else (f"{p}° ({points_for(p)})" if points_for(p) else f"{p}°"))
+    return out
+
+
 def main():
     results = load_results()
     now = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
@@ -64,6 +120,11 @@ def main():
         f"Puntos por circuito: {', '.join(f'{p}' for p in POINTS)} (del 1° al {len(POINTS)}°). "
         "La misma policy corre en todos los circuitos. Detalle de cada uno en el README.",
         "",
+        "**Un auto titular por escudería** (cuenta de GitHub): es el único que suma puntos y "
+        "ocupa posiciones. Es el auto de la escudería que más puntos suma contra los titulares "
+        "de las demás. El resto son autos de reserva: aparecen abajo, pero no le sacan "
+        "puestos a nadie.",
+        "",
     ]
     if not results:
         lines.append("_Sin submissions todavía._")
@@ -71,68 +132,92 @@ def main():
         print("Leaderboard regenerado con 0 equipo(s).")
         return
 
-    # Posiciones por circuito
-    pos = {r["team"]: {} for r in results}
+    owner = escuderias(ROOT, manual=CFG.get("escuderias"))
+    for r in results:
+        if r["team"] not in owner:
+            print(f"Aviso: no encontré el PR que creó submissions/{r['team']}/; "
+                  "cuenta como escudería propia (se corrige en config.yaml -> escuderias).")
+            owner[r["team"]] = r["team"]
+
+    tit = pick_titulares(results, owner)
+    titulares = list(tit.values())
+    is_tit = {r["team"] for r in titulares}
+    reservas = [r for r in results if r["team"] not in is_tit]
+    n = len(results)
+
+    # Posiciones reales: solo corren los titulares.
+    pos = {r["team"]: {} for r in titulares}
     ranked = {}
     for c in CIRCUITS:
-        ranked[c["id"]] = rank_circuit(results, c["id"])
+        ranked[c["id"]] = rank_circuit(titulares, c["id"])
         for p, r in ranked[c["id"]]:
             pos[r["team"]][c["id"]] = p
 
     # Campeonato
-    def champ_key(team):
-        ps = [pos[team][c["id"]] for c in CIRCUITS if c["id"] in pos[team]]
-        total = sum(points_for(p) for p in ps)
-        # countback F1: más 1°, después más 2°, ...
-        counts = tuple(-ps.count(k) for k in range(1, len(results) + 1))
-        return (-total, counts)
-
-    teams = sorted(pos, key=champ_key)
+    teams = sorted(pos, key=lambda t: (champ_key(pos[t], n), t))
     short = [c["name"].replace("GP ", "") for c in CIRCUITS]
     lines += [
         "## 🏁 Campeonato",
         "",
-        "| # | Equipo | **Pts** | " + " | ".join(short) + " |",
-        "|---|--------|-----:|" + "|".join(":---:" for _ in CIRCUITS) + "|",
+        "| # | Auto | Escudería | **Pts** | " + " | ".join(short) + " |",
+        "|---|------|-----------|-----:|" + "|".join(":---:" for _ in CIRCUITS) + "|",
     ]
     medal = {1: "🥇", 2: "🥈", 3: "🥉"}
     prev_key, rank = None, 0
     for i, t in enumerate(teams, 1):
-        k = champ_key(t)
+        k = champ_key(pos[t], n)
         if k != prev_key:
             rank, prev_key = i, k
-        cells = []
-        for c in CIRCUITS:
-            p = pos[t].get(c["id"])
-            cells.append("—" if p is None else (f"{p}° ({points_for(p)})" if points_for(p) else f"{p}°"))
-        lines.append(f"| {medal.get(rank, rank)} | {t} | **{-k[0]}** | " + " | ".join(cells) + " |")
+        lines.append(f"| {medal.get(rank, rank)} | {t} | {owner[t]} | **{-k[0]}** | " + " | ".join(cells(pos[t])) + " |")
 
-    # Detalle por circuito
+    # Reserva: qué haría cada auto si fuera el titular de su escudería.
+    if reservas:
+        hyp = {r["team"]: positions_vs(r, [t for o, t in tit.items() if o != owner[r["team"]]])
+               for r in reservas}
+        lines += [
+            "",
+            "## 🔧 Autos de reserva",
+            "",
+            "No suman ni ocupan posiciones. Las posiciones son las que tendría cada auto si fuera "
+            "el titular de su escudería (contra los titulares de las demás).",
+            "",
+            "| Auto | Escudería | Pts como titular | " + " | ".join(short) + " |",
+            "|------|-----------|-----:|" + "|".join(":---:" for _ in CIRCUITS) + "|",
+        ]
+        for r in sorted(reservas, key=lambda r: (owner[r["team"]].lower(), champ_key(hyp[r["team"]], n), r["team"])):
+            t = r["team"]
+            lines.append(f"| {t} | {owner[t]} | {-champ_key(hyp[t], n)[0]} | " + " | ".join(cells(hyp[t])) + " |")
+
+    # Detalle por circuito: titulares con posición; reservas intercaladas con "R".
     for c in CIRCUITS:
         cid = c["id"]
         rows = ranked[cid]
         if not rows:
             continue
         leader = rows[0][1]["circuits"][cid]["mean"]
+        all_rows = [(p, r) for p, r in rows] + [(None, r) for r in reservas if cid in r["circuits"]]
+        all_rows.sort(key=lambda pr: (-pr[1]["circuits"][cid][METRIC], pr[0] is None))
         lines += [
             "",
             f"## {c['name']}",
             "",
             f"_{c.get('desc', '')}_",
             "",
-            "| # | Equipo | Pts | Media | IQM | Sin llegar | Min | Max | Episodios | Dif. al 1° |",
-            "|---|--------|----:|-------|-----|-----------:|-----|-----|-----------|-----------|",
+            "| # | Auto | Escudería | Pts | Media | IQM | Sin llegar | Min | Max | Episodios | Dif. al 1° |",
+            "|---|------|-----------|----:|-------|-----|-----------:|-----|-----|-----------|-----------|",
         ]
-        for p, r in rows:
+        for p, r in all_rows:
             m = r["circuits"][cid]
-            gap = "—" if p == 1 else f"+{leader - m['mean']:.3f}"
+            d = leader - m["mean"]
+            gap = "—" if p == 1 else f"{'+' if d >= 0 else '−'}{abs(d):.3f}"
             lines.append(
-                f"| {p} | {r['team']} | {points_for(p)} | {m['mean']:.3f} | {m['iqm']:.3f} | "
-                f"{100 * m['fail_rate']:.1f}% | {m['min']:.1f} | {m['max']:.1f} | {r['n_episodes']} | {gap} |"
+                f"| {p if p else 'R'} | {r['team']} | {owner[r['team']]} | {points_for(p) if p else '—'} | "
+                f"{m['mean']:.3f} | {m['iqm']:.3f} | {100 * m['fail_rate']:.1f}% | {m['min']:.1f} | "
+                f"{m['max']:.1f} | {r['n_episodes']} | {gap} |"
             )
 
     (ROOT / "LEADERBOARD.md").write_text("\n".join(lines) + "\n")
-    print(f"Leaderboard regenerado con {len(results)} equipo(s).")
+    print(f"Leaderboard regenerado con {len(titulares)} titular(es) y {len(reservas)} auto(s) de reserva.")
 
 
 if __name__ == "__main__":

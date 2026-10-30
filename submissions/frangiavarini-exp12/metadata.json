@@ -1,0 +1,7 @@
+{
+  "team": "frangiavarini-exp12",
+  "members": [
+    "Francesca Giavarini"
+  ],
+  "notes": "Double DQN, n-step=3, sin shaping; 12. Largadas, 6000 ep.; seed=2"
+}

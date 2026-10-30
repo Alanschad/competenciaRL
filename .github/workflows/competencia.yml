@@ -113,7 +113,7 @@ jobs:
                   echo ''
                   cat "$RUNNER_TEMP/result.md"
                   echo ''
-                  echo "Los puntos del campeonato dependen de la posición contra los demás equipos: se calculan al mergear a \`main\`, en el [leaderboard](https://github.com/$GH_REPO/blob/main/LEADERBOARD.md)."
+                  echo "Los puntos del campeonato dependen de la posición contra las demás escuderías y solo suma el titular de cada una (su auto con más puntos): se calculan al mergear a \`main\`, en el [leaderboard](https://github.com/$GH_REPO/blob/main/LEADERBOARD.md)."
                 } > "$C"
               else
                 echo "⚠️ La submission es válida pero la evaluación falló. Avisale al profe." > "$C"
@@ -152,7 +152,15 @@ jobs:
     permissions:
       contents: write       # para commitear results/ y LEADERBOARD.md
     steps:
+      # Historia completa: la escudería de cada auto sale de los merge commits
+      # de origin/main (harness/escuderias.py).
+      # ref = la PUNTA de la rama, no el commit del evento: una corrida que
+      # estuvo encolada arranca desde el board que commiteó la anterior (si no,
+      # las dos regeneran LEADERBOARD.md y el rebase del final choca).
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+          fetch-depth: 0
       - uses: actions/setup-python@v5
         with: { python-version: "3.12" }
       - run: pip install -r harness/requirements.txt

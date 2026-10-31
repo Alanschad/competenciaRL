@@ -1,1 +1,1 @@
-{"team": "naoagent-ensemble", "members": ["Naomi Couriel"], "notes": "Ensemble que promedia los Q de 5 DQN (target network cada 500 pasos + normalización dentro de la red, 3 de ellas con retornos 3-step), elegidas por validación propia"}
+{"team": "naoagent-ensemble", "members": ["Naomi Couriel"], "notes": ""}

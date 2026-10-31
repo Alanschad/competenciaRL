@@ -1,6 +1,6 @@
 # 🏆 Leaderboard — Campeonato RL (DQN)
 
-Entorno base: `MountainCar-v0` · 5 circuitos · Ranking por **MEDIA** en cada circuito · Actualizado: 2026-10-31 13:15 UTC
+Entorno base: `MountainCar-v0` · 5 circuitos · Ranking por **MEDIA** en cada circuito · Actualizado: 2026-10-31 16:21 UTC
 
 Puntos por circuito: 25, 18, 15, 12, 10, 8, 6, 4, 2, 1 (del 1° al 10°). La misma policy corre en todos los circuitos. Detalle de cada uno en el README.
 
@@ -59,6 +59,7 @@ No suman ni ocupan posiciones. Las posiciones son las que tendría cada auto si 
 | Wachinators-v3 | ginerJuanUdesa | 41 | 25° | 3° (15) | 10° (1) | 1° (25) | 30° |
 | Larpest-v2 | ginerJuanUdesa | 40 | 27° | 3° (15) | 30° | 29° | 1° (25) |
 | Larper-v1 | ginerJuanUdesa | 40 | 27° | 3° (15) | 31° | 29° | 1° (25) |
+| Larpest-v3 | ginerJuanUdesa | 40 | 4° (12) | 4° (12) | 10° (1) | 14° | 3° (15) |
 | Sloppeitors-v1 | ginerJuanUdesa | 36 | 21° | 2° (18) | 30° | 26° | 2° (18) |
 | Wachinators-v4 | ginerJuanUdesa | 36 | 25° | 2° (18) | 30° | 28° | 2° (18) |
 | Wachinators-v2 | ginerJuanUdesa | 29 | 25° | 5° (10) | 10° (1) | 2° (18) | 30° |
@@ -112,6 +113,7 @@ _MountainCar-v0 tal cual._
 | 2 | leon-alderete | joaquinleondev | 18 | -97.549 | -100.408 | 0.0% | -104.0 | -83.0 | 1000 | +0.140 |
 | 3 | gonzalezds | mariagonzalezdelsolar | 15 | -97.590 | -100.334 | 0.0% | -105.0 | -83.0 | 1000 | +0.181 |
 | R | salim | athinasalimm | — | -97.613 | -100.276 | 0.0% | -104.0 | -83.0 | 1000 | +0.204 |
+| R | Larpest-v3 | ginerJuanUdesa | — | -97.668 | -100.460 | 0.0% | -104.0 | -83.0 | 1000 | +0.259 |
 | R | ivan-de-pineda-101 | RamaMusic | — | -97.736 | -100.750 | 0.0% | -104.0 | -83.0 | 1000 | +0.327 |
 | R | Alan-Schadan | Alanschad | — | -97.754 | -100.498 | 0.0% | -104.0 | -83.0 | 1000 | +0.345 |
 | 4 | agusamblard | agusamblard | 12 | -97.756 | -100.484 | 0.0% | -105.0 | -83.0 | 1000 | +0.347 |
@@ -194,6 +196,7 @@ _Largan desde cualquier punto de la pista y con velocidad inicial._
 | 4 | bravo-andres-r2 | Andresbravo9 | 12 | -57.320 | -58.908 | 0.0% | -128.0 | -3.0 | 1000 | +0.233 |
 | R | bravo-andres | Andresbravo9 | — | -57.341 | -58.936 | 0.0% | -149.0 | -3.0 | 1000 | +0.254 |
 | R | vanafa | VANAFA | — | -57.351 | -59.018 | 0.0% | -141.0 | -3.0 | 1000 | +0.264 |
+| R | Larpest-v3 | ginerJuanUdesa | — | -57.390 | -58.950 | 0.0% | -147.0 | -3.0 | 1000 | +0.303 |
 | R | Alan-Schadan-v4 | Alanschad | — | -57.393 | -59.152 | 0.0% | -112.0 | -3.0 | 1000 | +0.306 |
 | R | salim | athinasalimm | — | -57.393 | -58.892 | 0.0% | -142.0 | -3.0 | 1000 | +0.306 |
 | 5 | SilverArrow | VANAFA | 10 | -57.394 | -58.948 | 0.0% | -143.0 | -3.0 | 1000 | +0.307 |
@@ -293,6 +296,7 @@ _Sensores con ruido gaussiano en posición y velocidad._
 | R | ivan-de-pineda-es-inocente-con-features | RamaMusic | — | -102.255 | -101.862 | 0.0% | -183.0 | -83.0 | 1000 | +2.103 |
 | 8 | leon-alderete | joaquinleondev | 4 | -102.486 | -102.160 | 0.0% | -183.0 | -83.0 | 1000 | +2.334 |
 | 9 | bravo-andres-r2 | Andresbravo9 | 2 | -102.565 | -103.570 | 0.0% | -166.0 | -83.0 | 1000 | +2.413 |
+| R | Larpest-v3 | ginerJuanUdesa | — | -102.578 | -102.460 | 0.0% | -189.0 | -83.0 | 1000 | +2.426 |
 | R | Wachinators-v2 | ginerJuanUdesa | — | -102.731 | -103.472 | 0.0% | -163.0 | -83.0 | 1000 | +2.579 |
 | R | Wachinators-v3 | ginerJuanUdesa | — | -102.857 | -103.572 | 0.0% | -175.0 | -83.0 | 1000 | +2.705 |
 | 10 | joaco-di-cola | joaco1212004 | 1 | -103.230 | -105.882 | 0.0% | -192.0 | -83.0 | 1000 | +3.078 |
@@ -381,6 +385,7 @@ _El motor rinde entre 8% y 12% menos._
 | 12 | maxi | maxividela2577 | 0 | -119.282 | -112.610 | 0.4% | -200.0 | -93.0 | 1000 | +8.151 |
 | 13 | joaco-di-cola | joaco1212004 | 0 | -119.523 | -113.392 | 2.2% | -200.0 | -92.0 | 1000 | +8.392 |
 | R | ivan-de-pineda-101 | RamaMusic | — | -120.693 | -113.274 | 0.3% | -200.0 | -92.0 | 1000 | +9.562 |
+| R | Larpest-v3 | ginerJuanUdesa | — | -121.039 | -114.000 | 0.1% | -200.0 | -92.0 | 1000 | +9.908 |
 | 14 | zoffi | florzoffi | 0 | -121.367 | -114.872 | 7.1% | -200.0 | -92.0 | 1000 | +10.236 |
 | 15 | mateofreire | mateofreire | 0 | -122.323 | -112.370 | 1.0% | -200.0 | -92.0 | 1000 | +11.192 |
 | R | tomas-castro | tommycass | — | -122.620 | -118.376 | 0.0% | -193.0 | -92.0 | 1000 | +11.489 |
@@ -450,6 +455,7 @@ _La montaña cambia de forma: cos(f·x) con f entre 2.6 y 2.8 (en vez de 3)._
 | R | naoagent-greedy2 | naomicouriel | — | -98.919 | -101.578 | 0.0% | -109.0 | -82.0 | 1000 | +3.327 |
 | 3 | gonzalezds | mariagonzalezdelsolar | 15 | -98.962 | -100.764 | 0.0% | -112.0 | -83.0 | 1000 | +3.370 |
 | R | naoagent-greedy | naomicouriel | — | -98.967 | -101.634 | 0.0% | -110.0 | -82.0 | 1000 | +3.375 |
+| R | Larpest-v3 | ginerJuanUdesa | — | -99.044 | -101.890 | 0.0% | -110.0 | -82.0 | 1000 | +3.452 |
 | R | ivan-de-pineda-es-inocente-sin-cos | RamaMusic | — | -99.134 | -102.084 | 0.0% | -109.0 | -82.0 | 1000 | +3.542 |
 | R | naoagent-greedy3 | naomicouriel | — | -99.197 | -101.904 | 0.0% | -110.0 | -82.0 | 1000 | +3.605 |
 | 4 | leon-alderete | joaquinleondev | 12 | -99.202 | -101.910 | 0.0% | -110.0 | -82.0 | 1000 | +3.610 |

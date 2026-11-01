@@ -1,6 +1,6 @@
 # 🏆 Leaderboard — Campeonato RL (DQN)
 
-Entorno base: `MountainCar-v0` · 5 circuitos · Ranking por **MEDIA** en cada circuito · Actualizado: 2026-11-01 02:17 UTC
+Entorno base: `MountainCar-v0` · 5 circuitos · Ranking por **MEDIA** en cada circuito · Actualizado: 2026-11-01 11:39 UTC
 
 Puntos por circuito: 25, 18, 15, 12, 10, 8, 6, 4, 2, 1 (del 1° al 10°). La misma policy corre en todos los circuitos. Detalle de cada uno en el README.
 
@@ -10,38 +10,38 @@ Puntos por circuito: 25, 18, 15, 12, 10, 8, 6, 4, 2, 1 (del 1° al 10°). La mis
 
 | # | Auto | Escudería | **Pts** | Estándar | Largada libre | Lluvia | Motor débil | Otra pista |
 |---|------|-----------|-----:|:---:|:---:|:---:|:---:|:---:|
-| 🥇 | sally-m | athinasalimm | **50** | 1° (25) | 1° (25) | 25° | 16° | 11° |
-| 🥈 | naoagent-greedy | naomicouriel | **37** | 3° (15) | 13° | 2° (18) | 21° | 8° (4) |
+| 🥇 | sally-m | athinasalimm | **51** | 1° (25) | 1° (25) | 25° | 17° | 10° (1) |
+| 🥈 | naoagent-greedy | naomicouriel | **39** | 3° (15) | 13° | 2° (18) | 22° | 7° (6) |
 | 🥉 | Sloppeitors-v1 | ginerJuanUdesa | **36** | 21° | 2° (18) | 31° | 29° | 2° (18) |
-| 4 | Alan-Schadan-v4 | Alanschad | **35** | 28° | 5° (10) | 13° | 1° (25) | 31° |
-| 5 | bravo-andres | Andresbravo9 | **35** | 4° (12) | 3° (15) | 18° | 20° | 6° (8) |
-| 6 | ivan-de-pineda-102 | RamaMusic | **32** | 7° (6) | 17° | 1° (25) | 12° | 10° (1) |
-| 7 | vanafa | VANAFA | **30** | 2° (18) | 4° (12) | 21° | 18° | 12° |
+| 4 | bravo-andres | Andresbravo9 | **34** | 4° (12) | 4° (12) | 18° | 21° | 5° (10) |
+| 5 | Alan-Schadan-v4 | Alanschad | **33** | 28° | 6° (8) | 14° | 1° (25) | 31° |
+| 6 | ivan-de-pineda-102 | RamaMusic | **33** | 7° (6) | 17° | 1° (25) | 13° | 9° (2) |
+| 7 | vanafa | VANAFA | **28** | 2° (18) | 5° (10) | 21° | 19° | 11° |
 | 8 | valentino-pettazi-5 | ValenPettaz1 | **28** | 27° | 12° | 5° (10) | 2° (18) | 26° |
-| 9 | lein2 | matilein | **25** | 31° | 14° | 26° | 17° | 1° (25) |
-| 10 | fium-V3 | tomasbenavidez | **25** | 12° | 20° | 3° (15) | 26° | 5° (10) |
-| 11 | tomas-castro | tommycass | **23** | 22° | 6° (8) | 22° | 11° | 3° (15) |
+| 9 | fium-V3 | tomasbenavidez | **27** | 11° | 20° | 3° (15) | 27° | 4° (12) |
+| 10 | DeCruz | BrunoDC-dev | **27** | 15° | 3° (15) | 13° | 4° (12) | 23° |
+| 11 | lein2 | matilein | **25** | 31° | 14° | 26° | 18° | 1° (25) |
 | 12 | agusamblard-v4 | agusamblard | **23** | 23° | 11° | 6° (8) | 3° (15) | 24° |
-| 13 | domabot2 | Sdomato | **20** | 19° | 21° | 4° (12) | 6° (8) | 20° |
-| 14 | DeCruz_v2 | BrunoDC-dev | **18** | 11° | 7° (6) | 16° | 28° | 4° (12) |
-| 15 | espero-no-ser-ultimo | Tadeo-Casiraghi | **16** | 18° | 15° | 7° (6) | 5° (10) | 23° |
-| 16 | leon-alderete | joaquinleondev | **16** | 5° (10) | 19° | 8° (4) | 25° | 9° (2) |
-| 17 | Franco-Colapinto | famatodlr | **14** | 20° | 10° (1) | 10° (1) | 4° (12) | 19° |
-| 18 | gonzalezds | mariagonzalezdelsolar | **14** | 6° (8) | 16° | 24° | 24° | 7° (6) |
-| 19 | frangiavarini-exp12 | frangiavarini | **8** | 8° (4) | 8° (4) | 20° | 14° | 13° |
-| 20 | maxi | maxividela2577 | **6** | 24° | 28° | 12° | 7° (6) | 22° |
-| 21 | joaco-di-cola | joaco1212004 | **6** | 29° | 31° | 9° (2) | 8° (4) | 30° |
-| 22 | Meteoro | FacundoFirpo | **2** | 9° (2) | 26° | 29° | 27° | 14° |
-| 23 | zoffi | florzoffi | **2** | 26° | 32° | 14° | 9° (2) | 28° |
-| 24 | sb3zoo | Gabo-Tor | **2** | 16° | 9° (2) | 27° | 30° | 27° |
-| 25 | mateofreire | mateofreire | **1** | 25° | 18° | 11° | 10° (1) | 15° |
-| 26 | jazgeller | jazgeller | **1** | 10° (1) | 25° | 15° | 23° | 18° |
-| 27 | sgroba | Santi2065 | **0** | 15° | 23° | 17° | 13° | 21° |
-| 28 | martin-bianchi | martinbianchi0 | **0** | 13° | 27° | 19° | 31° | 29° |
-| 29 | viaggio | FelipeViaggioFL | **0** | 14° | 30° | 28° | 15° | 16° |
-| 30 | auto-cipre | CiprianoOss | **0** | 32° | 24° | 32° | 19° | 17° |
+| 13 | tomas-castro | tommycass | **21** | 22° | 7° (6) | 22° | 12° | 3° (15) |
+| 14 | domabot2 | Sdomato | **18** | 19° | 21° | 4° (12) | 7° (6) | 19° |
+| 15 | leon-alderete | joaquinleondev | **18** | 5° (10) | 19° | 8° (4) | 26° | 8° (4) |
+| 16 | gonzalezds | mariagonzalezdelsolar | **16** | 6° (8) | 16° | 24° | 25° | 6° (8) |
+| 17 | espero-no-ser-ultimo | Tadeo-Casiraghi | **14** | 18° | 15° | 7° (6) | 6° (8) | 22° |
+| 18 | Franco-Colapinto | famatodlr | **12** | 20° | 10° (1) | 10° (1) | 5° (10) | 18° |
+| 19 | frangiavarini-exp12 | frangiavarini | **8** | 8° (4) | 8° (4) | 20° | 15° | 12° |
+| 20 | maxi | maxividela2577 | **4** | 24° | 28° | 12° | 8° (4) | 21° |
+| 21 | joaco-di-cola | joaco1212004 | **4** | 29° | 31° | 9° (2) | 9° (2) | 30° |
+| 22 | Meteoro | FacundoFirpo | **2** | 9° (2) | 26° | 29° | 28° | 13° |
+| 23 | sb3zoo | Gabo-Tor | **2** | 16° | 9° (2) | 27° | 30° | 27° |
+| 24 | zoffi | florzoffi | **1** | 26° | 32° | 15° | 10° (1) | 28° |
+| 25 | jazgeller | jazgeller | **1** | 10° (1) | 25° | 16° | 24° | 17° |
+| 26 | mateofreire | mateofreire | **0** | 25° | 18° | 11° | 11° | 14° |
+| 27 | martin-bianchi | martinbianchi0 | **0** | 12° | 27° | 19° | 31° | 29° |
+| 28 | viaggio | FelipeViaggioFL | **0** | 13° | 30° | 28° | 16° | 15° |
+| 29 | sgroba | Santi2065 | **0** | 14° | 23° | 17° | 14° | 20° |
+| 30 | auto-cipre | CiprianoOss | **0** | 32° | 24° | 32° | 20° | 16° |
 | 31 | matbr | mateobramer | **0** | 17° | 22° | 30° | 32° | 32° |
-| 32 | valeriano | Isivaleriano | **0** | 30° | 29° | 23° | 22° | 25° |
+| 32 | valeriano | Isivaleriano | **0** | 30° | 29° | 23° | 23° | 25° |
 | 33 | ion_h_RL_TP2 | 72Ion | **0** | 33° | 33° | 33° | 33° | 33° |
 
 ## 🔧 Autos de reserva
@@ -51,52 +51,53 @@ No suman ni ocupan posiciones. Las posiciones son las que tendría cada auto si 
 | Auto | Escudería | Pts como titular | Estándar | Largada libre | Lluvia | Motor débil | Otra pista |
 |------|-----------|-----:|:---:|:---:|:---:|:---:|:---:|
 | agusamblard | agusamblard | 6 | 7° (6) | 18° | 18° | 29° | 24° |
-| Alan-Schadan-v3 | Alanschad | 35 | 27° | 5° (10) | 13° | 1° (25) | 31° |
-| Alan-Schadan-v2 | Alanschad | 26 | 26° | 6° (8) | 13° | 2° (18) | 30° |
-| Alan-Schadan | Alanschad | 6 | 7° (6) | 11° | 24° | 20° | 16° |
-| bravo-andres-r2 | Andresbravo9 | 32 | 23° | 3° (15) | 9° (2) | 3° (15) | 24° |
-| bravo-andres-r1 | Andresbravo9 | 22 | 14° | 6° (8) | 8° (4) | 5° (10) | 16° |
-| salim | athinasalimm | 20 | 6° (8) | 4° (12) | 20° | 15° | 17° |
-| DeCruz | BrunoDC-dev | 27 | 15° | 3° (15) | 13° | 4° (12) | 23° |
-| Larpest-v1 | ginerJuanUdesa | 43 | 25° | 2° (18) | 31° | 29° | 1° (25) |
-| Larpest-v2 | ginerJuanUdesa | 43 | 28° | 2° (18) | 31° | 31° | 1° (25) |
-| Larper-v1 | ginerJuanUdesa | 43 | 28° | 2° (18) | 32° | 31° | 1° (25) |
-| Larpest-v4 | ginerJuanUdesa | 40 | 25° | 2° (18) | 8° (4) | 2° (18) | 30° |
-| Wachinators-v3 | ginerJuanUdesa | 38 | 25° | 2° (18) | 9° (2) | 2° (18) | 31° |
+| Alan-Schadan-v3 | Alanschad | 33 | 27° | 6° (8) | 14° | 1° (25) | 31° |
+| Alan-Schadan-v2 | Alanschad | 24 | 26° | 7° (6) | 14° | 2° (18) | 30° |
+| Alan-Schadan | Alanschad | 6 | 7° (6) | 11° | 24° | 21° | 15° |
+| bravo-andres-r2 | Andresbravo9 | 29 | 23° | 4° (12) | 9° (2) | 3° (15) | 24° |
+| bravo-andres-r1 | Andresbravo9 | 18 | 13° | 7° (6) | 8° (4) | 6° (8) | 15° |
+| salim | athinasalimm | 18 | 6° (8) | 5° (10) | 20° | 16° | 16° |
+| DeCruz_v2 | BrunoDC-dev | 18 | 11° | 7° (6) | 16° | 28° | 4° (12) |
+| Larpest-v5 | ginerJuanUdesa | 44 | 25° | 3° (15) | 8° (4) | 1° (25) | 30° |
+| Larpest-v1 | ginerJuanUdesa | 40 | 25° | 3° (15) | 31° | 29° | 1° (25) |
+| Larpest-v2 | ginerJuanUdesa | 40 | 28° | 3° (15) | 31° | 31° | 1° (25) |
+| Larper-v1 | ginerJuanUdesa | 40 | 28° | 3° (15) | 32° | 31° | 1° (25) |
+| Larpest-v4 | ginerJuanUdesa | 37 | 25° | 3° (15) | 8° (4) | 2° (18) | 30° |
 | Wachinators-v4 | ginerJuanUdesa | 36 | 25° | 2° (18) | 31° | 30° | 2° (18) |
-| Wachinators-v2 | ginerJuanUdesa | 30 | 25° | 5° (10) | 9° (2) | 2° (18) | 30° |
-| Larpest-v3 | ginerJuanUdesa | 26 | 7° (6) | 4° (12) | 9° (2) | 9° (2) | 8° (4) |
-| Wachinators-v1 | ginerJuanUdesa | 22 | 15° | 8° (4) | 24° | 29° | 2° (18) |
+| Wachinators-v3 | ginerJuanUdesa | 35 | 25° | 3° (15) | 9° (2) | 2° (18) | 31° |
+| Wachinators-v2 | ginerJuanUdesa | 28 | 25° | 6° (8) | 9° (2) | 2° (18) | 30° |
+| Larpest-v3 | ginerJuanUdesa | 25 | 7° (6) | 5° (10) | 9° (2) | 10° (1) | 7° (6) |
+| Wachinators-v1 | ginerJuanUdesa | 22 | 14° | 8° (4) | 24° | 29° | 2° (18) |
 | Wachinator-v1 | ginerJuanUdesa | 18 | 28° | 15° | 32° | 32° | 2° (18) |
-| lein | matilein | 28 | 23° | 22° | 2° (18) | 5° (10) | 23° |
-| lein3 | matilein | 18 | 31° | 14° | 25° | 23° | 2° (18) |
-| naoagent | naomicouriel | 36 | 19° | 7° (6) | 2° (18) | 4° (12) | 22° |
-| naoagent-ensemble | naomicouriel | 34 | 15° | 8° (4) | 2° (18) | 4° (12) | 21° |
-| naoagent-greedy3 | naomicouriel | 28 | 2° (18) | 17° | 7° (6) | 21° | 8° (4) |
-| naoagent-greedy2 | naomicouriel | 28 | 2° (18) | 19° | 8° (4) | 24° | 7° (6) |
-| ivan-de-pineda-105 | RamaMusic | 33 | 14° | 13° | 1° (25) | 6° (8) | 15° |
-| ivan-de-pineda-106 | RamaMusic | 33 | 14° | 13° | 1° (25) | 6° (8) | 17° |
-| ivan-de-pineda-104 | RamaMusic | 33 | 17° | 13° | 1° (25) | 6° (8) | 19° |
-| ivan-de-pineda-101 | RamaMusic | 33 | 7° (6) | 13° | 1° (25) | 9° (2) | 12° |
-| ivan-de-pineda-103 | RamaMusic | 31 | 15° | 13° | 1° (25) | 7° (6) | 17° |
-| ivan-de-pineda-es-inocente-con-features | RamaMusic | 21 | 3° (15) | 13° | 7° (6) | 20° | 11° |
-| ivan-de-pineda-107 | RamaMusic | 20 | 19° | 12° | 4° (12) | 6° (8) | 17° |
-| ivan-de-pineda-es-inocente-sin-features | RamaMusic | 18 | 4° (12) | 17° | 7° (6) | 14° | 11° |
-| ivan-de-pineda-es-inocente-sin-cos | RamaMusic | 18 | 5° (10) | 13° | 7° (6) | 23° | 9° (2) |
-| domabot4 | Sdomato | 12 | 20° | 25° | 27° | 4° (12) | 21° |
-| domabot3 | Sdomato | 8 | 25° | 18° | 24° | 6° (8) | 21° |
+| lein | matilein | 26 | 23° | 22° | 2° (18) | 6° (8) | 22° |
+| lein3 | matilein | 18 | 31° | 14° | 25° | 24° | 2° (18) |
+| naoagent-ensemble | naomicouriel | 34 | 15° | 8° (4) | 2° (18) | 4° (12) | 20° |
+| naoagent | naomicouriel | 34 | 19° | 8° (4) | 2° (18) | 4° (12) | 21° |
+| naoagent-greedy2 | naomicouriel | 30 | 2° (18) | 19° | 8° (4) | 25° | 6° (8) |
+| naoagent-greedy3 | naomicouriel | 30 | 2° (18) | 17° | 7° (6) | 22° | 7° (6) |
+| ivan-de-pineda-101 | RamaMusic | 32 | 7° (6) | 13° | 1° (25) | 10° (1) | 11° |
+| ivan-de-pineda-105 | RamaMusic | 31 | 13° | 13° | 1° (25) | 7° (6) | 14° |
+| ivan-de-pineda-106 | RamaMusic | 31 | 13° | 13° | 1° (25) | 7° (6) | 16° |
+| ivan-de-pineda-104 | RamaMusic | 31 | 17° | 13° | 1° (25) | 7° (6) | 18° |
+| ivan-de-pineda-103 | RamaMusic | 29 | 14° | 13° | 1° (25) | 8° (4) | 16° |
+| ivan-de-pineda-es-inocente-con-features | RamaMusic | 22 | 3° (15) | 13° | 7° (6) | 21° | 10° (1) |
+| ivan-de-pineda-es-inocente-sin-cos | RamaMusic | 20 | 5° (10) | 13° | 7° (6) | 24° | 8° (4) |
+| ivan-de-pineda-es-inocente-sin-features | RamaMusic | 19 | 4° (12) | 17° | 7° (6) | 15° | 10° (1) |
+| ivan-de-pineda-107 | RamaMusic | 18 | 19° | 12° | 4° (12) | 7° (6) | 16° |
+| domabot4 | Sdomato | 10 | 20° | 25° | 27° | 5° (10) | 20° |
+| domabot3 | Sdomato | 6 | 25° | 18° | 24° | 7° (6) | 20° |
 | domabot | Sdomato | 0 | 17° | 32° | 30° | 31° | 23° |
-| fium-V5 | tomasbenavidez | 31 | 29° | 7° (6) | 30° | 32° | 1° (25) |
+| fium-V5 | tomasbenavidez | 29 | 29° | 8° (4) | 30° | 32° | 1° (25) |
 | fium-V2 | tomasbenavidez | 18 | 28° | 30° | 28° | 2° (18) | 31° |
 | fium-V1 | tomasbenavidez | 15 | 23° | 18° | 23° | 32° | 3° (15) |
-| fium-V4 | tomasbenavidez | 12 | 23° | 9° (2) | 17° | 5° (10) | 29° |
-| tomasbenavidez | tomasbenavidez | 2 | 9° (2) | 20° | 18° | 30° | 11° |
-| tomas-castro-equilibrado | tommycass | 26 | 16° | 11° | 2° (18) | 6° (8) | 17° |
-| valentino-pettazi-2 | ValenPettaz1 | 28 | 18° | 15° | 2° (18) | 5° (10) | 20° |
+| fium-V4 | tomasbenavidez | 10 | 23° | 9° (2) | 17° | 6° (8) | 29° |
+| tomasbenavidez | tomasbenavidez | 3 | 9° (2) | 20° | 18° | 30° | 10° (1) |
+| tomas-castro-equilibrado | tommycass | 24 | 16° | 11° | 2° (18) | 7° (6) | 16° |
 | valentino-pettazi | ValenPettaz1 | 28 | 24° | 17° | 5° (10) | 2° (18) | 26° |
-| valentino-pettazi-3 | ValenPettaz1 | 26 | 15° | 13° | 2° (18) | 6° (8) | 20° |
+| valentino-pettazi-2 | ValenPettaz1 | 26 | 18° | 15° | 2° (18) | 6° (8) | 19° |
 | valentino-pettazi-4 | ValenPettaz1 | 25 | 21° | 18° | 5° (10) | 3° (15) | 24° |
-| SilverArrow | VANAFA | 26 | 15° | 5° (10) | 8° (4) | 4° (12) | 19° |
+| valentino-pettazi-3 | ValenPettaz1 | 24 | 14° | 13° | 2° (18) | 7° (6) | 19° |
+| SilverArrow | VANAFA | 22 | 14° | 6° (8) | 8° (4) | 5° (10) | 18° |
 
 ## GP Estándar
 
@@ -125,19 +126,19 @@ _MountainCar-v0 tal cual._
 | R | tomasbenavidez | tomasbenavidez | — | -97.911 | -100.694 | 0.0% | -104.0 | -83.0 | 1000 | +0.502 |
 | 9 | Meteoro | FacundoFirpo | 2 | -97.934 | -100.976 | 0.0% | -104.0 | -83.0 | 1000 | +0.525 |
 | 10 | jazgeller | jazgeller | 1 | -97.958 | -100.822 | 0.0% | -108.0 | -83.0 | 1000 | +0.549 |
-| 11 | DeCruz_v2 | BrunoDC-dev | 0 | -98.071 | -100.854 | 0.0% | -107.0 | -84.0 | 1000 | +0.662 |
-| 12 | fium-V3 | tomasbenavidez | 0 | -98.177 | -100.828 | 0.0% | -105.0 | -83.0 | 1000 | +0.768 |
-| 13 | martin-bianchi | martinbianchi0 | 0 | -98.282 | -100.826 | 0.0% | -106.0 | -83.0 | 1000 | +0.873 |
-| 14 | viaggio | FelipeViaggioFL | 0 | -98.343 | -101.658 | 0.0% | -104.0 | -83.0 | 1000 | +0.934 |
+| R | DeCruz_v2 | BrunoDC-dev | — | -98.071 | -100.854 | 0.0% | -107.0 | -84.0 | 1000 | +0.662 |
+| 11 | fium-V3 | tomasbenavidez | 0 | -98.177 | -100.828 | 0.0% | -105.0 | -83.0 | 1000 | +0.768 |
+| 12 | martin-bianchi | martinbianchi0 | 0 | -98.282 | -100.826 | 0.0% | -106.0 | -83.0 | 1000 | +0.873 |
+| 13 | viaggio | FelipeViaggioFL | 0 | -98.343 | -101.658 | 0.0% | -104.0 | -83.0 | 1000 | +0.934 |
 | R | Wachinators-v1 | ginerJuanUdesa | — | -98.406 | -101.306 | 0.0% | -114.0 | -83.0 | 1000 | +0.997 |
 | R | valentino-pettazi-3 | ValenPettaz1 | — | -98.406 | -101.806 | 0.0% | -104.0 | -83.0 | 1000 | +0.997 |
 | R | bravo-andres-r1 | Andresbravo9 | — | -98.423 | -101.828 | 0.0% | -104.0 | -83.0 | 1000 | +1.014 |
 | R | ivan-de-pineda-105 | RamaMusic | — | -98.508 | -102.030 | 0.0% | -104.0 | -83.0 | 1000 | +1.099 |
 | R | ivan-de-pineda-106 | RamaMusic | — | -98.579 | -102.020 | 0.0% | -105.0 | -83.0 | 1000 | +1.170 |
-| 15 | sgroba | Santi2065 | 0 | -98.663 | -101.698 | 0.0% | -106.0 | -83.0 | 1000 | +1.254 |
+| 14 | sgroba | Santi2065 | 0 | -98.663 | -101.698 | 0.0% | -106.0 | -83.0 | 1000 | +1.254 |
 | R | ivan-de-pineda-103 | RamaMusic | — | -98.782 | -102.210 | 0.0% | -105.0 | -83.0 | 1000 | +1.373 |
 | R | SilverArrow | VANAFA | — | -98.865 | -102.346 | 0.0% | -106.0 | -83.0 | 1000 | +1.456 |
-| R | DeCruz | BrunoDC-dev | — | -98.927 | -102.420 | 0.0% | -104.0 | -83.0 | 1000 | +1.518 |
+| 15 | DeCruz | BrunoDC-dev | 0 | -98.927 | -102.420 | 0.0% | -104.0 | -83.0 | 1000 | +1.518 |
 | R | tomas-castro-equilibrado | tommycass | — | -99.025 | -102.460 | 0.0% | -106.0 | -83.0 | 1000 | +1.616 |
 | R | naoagent-ensemble | naomicouriel | — | -99.111 | -102.670 | 0.0% | -104.0 | -83.0 | 1000 | +1.702 |
 | 16 | sb3zoo | Gabo-Tor | 0 | -99.114 | -101.784 | 0.0% | -108.0 | -84.0 | 1000 | +1.705 |
@@ -168,6 +169,7 @@ _MountainCar-v0 tal cual._
 | R | domabot3 | Sdomato | — | -100.713 | -104.222 | 0.0% | -106.0 | -86.0 | 1000 | +3.304 |
 | R | Wachinators-v3 | ginerJuanUdesa | — | -100.727 | -102.798 | 0.0% | -104.0 | -83.0 | 1000 | +3.318 |
 | R | Alan-Schadan-v2 | Alanschad | — | -100.745 | -103.642 | 0.0% | -105.0 | -83.0 | 1000 | +3.336 |
+| R | Larpest-v5 | ginerJuanUdesa | — | -101.291 | -103.582 | 0.0% | -105.0 | -83.0 | 1000 | +3.882 |
 | R | Larpest-v1 | ginerJuanUdesa | — | -101.323 | -101.688 | 0.0% | -143.0 | -83.0 | 1000 | +3.914 |
 | 26 | zoffi | florzoffi | 0 | -101.328 | -103.064 | 0.0% | -111.0 | -83.0 | 1000 | +3.919 |
 | R | Alan-Schadan-v3 | Alanschad | — | -101.561 | -103.852 | 0.0% | -104.0 | -83.0 | 1000 | +4.152 |
@@ -194,27 +196,28 @@ _Largan desde cualquier punto de la pista y con velocidad inicial._
 | 1 | sally-m | athinasalimm | 25 | -57.087 | -58.832 | 0.0% | -140.0 | -3.0 | 1000 | — |
 | 2 | Sloppeitors-v1 | ginerJuanUdesa | 18 | -57.142 | -58.880 | 0.0% | -124.0 | -3.0 | 1000 | +0.055 |
 | R | Wachinators-v4 | ginerJuanUdesa | — | -57.142 | -58.864 | 0.0% | -124.0 | -3.0 | 1000 | +0.055 |
-| R | DeCruz | BrunoDC-dev | — | -57.175 | -58.862 | 0.0% | -119.0 | -3.0 | 1000 | +0.088 |
+| 3 | DeCruz | BrunoDC-dev | 15 | -57.175 | -58.862 | 0.0% | -119.0 | -3.0 | 1000 | +0.088 |
 | R | Wachinators-v3 | ginerJuanUdesa | — | -57.227 | -58.850 | 0.0% | -133.0 | -3.0 | 1000 | +0.140 |
 | R | Larpest-v2 | ginerJuanUdesa | — | -57.238 | -58.936 | 0.0% | -131.0 | -3.0 | 1000 | +0.151 |
 | R | Larper-v1 | ginerJuanUdesa | — | -57.253 | -58.942 | 0.0% | -136.0 | -3.0 | 1000 | +0.166 |
+| R | Larpest-v5 | ginerJuanUdesa | — | -57.261 | -58.874 | 0.0% | -137.0 | -3.0 | 1000 | +0.174 |
 | R | Larpest-v1 | ginerJuanUdesa | — | -57.311 | -58.978 | 0.0% | -140.0 | -3.0 | 1000 | +0.224 |
 | R | Larpest-v4 | ginerJuanUdesa | — | -57.319 | -58.868 | 0.0% | -148.0 | -3.0 | 1000 | +0.232 |
 | R | bravo-andres-r2 | Andresbravo9 | — | -57.320 | -58.908 | 0.0% | -128.0 | -3.0 | 1000 | +0.233 |
-| 3 | bravo-andres | Andresbravo9 | 15 | -57.341 | -58.936 | 0.0% | -149.0 | -3.0 | 1000 | +0.254 |
-| 4 | vanafa | VANAFA | 12 | -57.351 | -59.018 | 0.0% | -141.0 | -3.0 | 1000 | +0.264 |
+| 4 | bravo-andres | Andresbravo9 | 12 | -57.341 | -58.936 | 0.0% | -149.0 | -3.0 | 1000 | +0.254 |
+| 5 | vanafa | VANAFA | 10 | -57.351 | -59.018 | 0.0% | -141.0 | -3.0 | 1000 | +0.264 |
 | R | Larpest-v3 | ginerJuanUdesa | — | -57.390 | -58.950 | 0.0% | -147.0 | -3.0 | 1000 | +0.303 |
-| 5 | Alan-Schadan-v4 | Alanschad | 10 | -57.393 | -59.152 | 0.0% | -112.0 | -3.0 | 1000 | +0.306 |
+| 6 | Alan-Schadan-v4 | Alanschad | 8 | -57.393 | -59.152 | 0.0% | -112.0 | -3.0 | 1000 | +0.306 |
 | R | salim | athinasalimm | — | -57.393 | -58.892 | 0.0% | -142.0 | -3.0 | 1000 | +0.306 |
 | R | SilverArrow | VANAFA | — | -57.394 | -58.948 | 0.0% | -143.0 | -3.0 | 1000 | +0.307 |
 | R | Wachinators-v2 | ginerJuanUdesa | — | -57.430 | -58.880 | 0.0% | -150.0 | -3.0 | 1000 | +0.343 |
 | R | Alan-Schadan-v3 | Alanschad | — | -57.463 | -59.186 | 0.0% | -121.0 | -3.0 | 1000 | +0.376 |
-| 6 | tomas-castro | tommycass | 8 | -57.466 | -58.982 | 0.0% | -143.0 | -3.0 | 1000 | +0.379 |
+| 7 | tomas-castro | tommycass | 6 | -57.466 | -58.982 | 0.0% | -143.0 | -3.0 | 1000 | +0.379 |
 | R | bravo-andres-r1 | Andresbravo9 | — | -57.496 | -59.020 | 0.0% | -152.0 | -3.0 | 1000 | +0.409 |
 | R | naoagent | naomicouriel | — | -57.585 | -58.898 | 0.0% | -163.0 | -3.0 | 1000 | +0.498 |
 | R | fium-V5 | tomasbenavidez | — | -57.606 | -59.036 | 0.0% | -158.0 | -3.0 | 1000 | +0.519 |
 | R | Alan-Schadan-v2 | Alanschad | — | -57.654 | -59.382 | 0.0% | -119.0 | -3.0 | 1000 | +0.567 |
-| 7 | DeCruz_v2 | BrunoDC-dev | 6 | -57.695 | -59.052 | 0.0% | -147.0 | -3.0 | 1000 | +0.608 |
+| R | DeCruz_v2 | BrunoDC-dev | — | -57.695 | -59.052 | 0.0% | -147.0 | -3.0 | 1000 | +0.608 |
 | R | naoagent-ensemble | naomicouriel | — | -57.698 | -58.910 | 0.0% | -170.0 | -3.0 | 1000 | +0.611 |
 | 8 | frangiavarini-exp12 | frangiavarini | 4 | -57.728 | -59.366 | 0.0% | -115.0 | -3.0 | 1000 | +0.641 |
 | R | fium-V4 | tomasbenavidez | — | -57.747 | -59.064 | 0.0% | -132.0 | -3.0 | 1000 | +0.660 |
@@ -303,6 +306,7 @@ _Sensores con ruido gaussiano en posición y velocidad._
 | R | ivan-de-pineda-es-inocente-sin-cos | RamaMusic | — | -101.808 | -102.138 | 0.0% | -189.0 | -83.0 | 1000 | +1.531 |
 | R | Larpest-v4 | ginerJuanUdesa | — | -101.837 | -103.412 | 0.0% | -157.0 | -83.0 | 1000 | +1.560 |
 | R | ivan-de-pineda-es-inocente-sin-features | RamaMusic | — | -101.885 | -101.772 | 0.0% | -186.0 | -83.0 | 1000 | +1.608 |
+| R | Larpest-v5 | ginerJuanUdesa | — | -102.055 | -103.754 | 0.0% | -156.0 | -83.0 | 1000 | +1.778 |
 | R | bravo-andres-r1 | Andresbravo9 | — | -102.105 | -102.678 | 0.0% | -167.0 | -83.0 | 1000 | +1.828 |
 | R | naoagent-greedy3 | naomicouriel | — | -102.200 | -101.928 | 0.0% | -174.0 | -83.0 | 1000 | +1.923 |
 | R | ivan-de-pineda-es-inocente-con-features | RamaMusic | — | -102.255 | -101.862 | 0.0% | -183.0 | -83.0 | 1000 | +1.978 |
@@ -316,13 +320,13 @@ _Sensores con ruido gaussiano en posición y velocidad._
 | 10 | Franco-Colapinto | famatodlr | 1 | -103.258 | -103.960 | 0.0% | -167.0 | -83.0 | 1000 | +2.981 |
 | 11 | mateofreire | mateofreire | 0 | -103.743 | -104.048 | 0.0% | -167.0 | -84.0 | 1000 | +3.466 |
 | 12 | maxi | maxividela2577 | 0 | -103.774 | -104.896 | 0.0% | -194.0 | -84.0 | 1000 | +3.497 |
-| R | DeCruz | BrunoDC-dev | — | -103.804 | -103.392 | 0.0% | -176.0 | -83.0 | 1000 | +3.527 |
+| 13 | DeCruz | BrunoDC-dev | 0 | -103.804 | -103.392 | 0.0% | -176.0 | -83.0 | 1000 | +3.527 |
 | R | Alan-Schadan-v2 | Alanschad | — | -104.049 | -103.880 | 0.0% | -171.0 | -83.0 | 1000 | +3.772 |
-| 13 | Alan-Schadan-v4 | Alanschad | 0 | -104.166 | -103.996 | 0.0% | -175.0 | -83.0 | 1000 | +3.889 |
+| 14 | Alan-Schadan-v4 | Alanschad | 0 | -104.166 | -103.996 | 0.0% | -175.0 | -83.0 | 1000 | +3.889 |
 | R | Alan-Schadan-v3 | Alanschad | — | -104.181 | -103.998 | 0.0% | -175.0 | -83.0 | 1000 | +3.904 |
-| 14 | zoffi | florzoffi | 0 | -104.280 | -105.628 | 0.0% | -182.0 | -83.0 | 1000 | +4.003 |
-| 15 | jazgeller | jazgeller | 0 | -104.373 | -104.084 | 0.0% | -182.0 | -83.0 | 1000 | +4.096 |
-| 16 | DeCruz_v2 | BrunoDC-dev | 0 | -104.736 | -102.696 | 0.0% | -180.0 | -83.0 | 1000 | +4.459 |
+| 15 | zoffi | florzoffi | 0 | -104.280 | -105.628 | 0.0% | -182.0 | -83.0 | 1000 | +4.003 |
+| 16 | jazgeller | jazgeller | 0 | -104.373 | -104.084 | 0.0% | -182.0 | -83.0 | 1000 | +4.096 |
+| R | DeCruz_v2 | BrunoDC-dev | — | -104.736 | -102.696 | 0.0% | -180.0 | -83.0 | 1000 | +4.459 |
 | 17 | sgroba | Santi2065 | 0 | -104.912 | -103.818 | 0.2% | -200.0 | -83.0 | 1000 | +4.635 |
 | R | fium-V4 | tomasbenavidez | — | -105.019 | -104.376 | 0.0% | -176.0 | -83.0 | 1000 | +4.742 |
 | 18 | bravo-andres | Andresbravo9 | 0 | -105.291 | -102.634 | 0.0% | -184.0 | -83.0 | 1000 | +5.014 |
@@ -365,6 +369,7 @@ _El motor rinde entre 8% y 12% menos._
 
 | # | Auto | Escudería | Pts | Media | IQM | Sin llegar | Min | Max | Episodios | Dif. al 1° |
 |---|------|-----------|----:|-------|-----|-----------:|-----|-----|-----------|-----------|
+| R | Larpest-v5 | ginerJuanUdesa | — | -110.524 | -110.532 | 0.0% | -194.0 | -92.0 | 1000 | −0.256 |
 | 1 | Alan-Schadan-v4 | Alanschad | 25 | -110.780 | -111.018 | 0.0% | -176.0 | -92.0 | 1000 | — |
 | R | fium-V2 | tomasbenavidez | — | -110.867 | -111.010 | 0.0% | -125.0 | -92.0 | 1000 | +0.087 |
 | R | Larpest-v4 | ginerJuanUdesa | — | -110.959 | -110.844 | 0.0% | -199.0 | -92.0 | 1000 | +0.179 |
@@ -379,14 +384,14 @@ _El motor rinde entre 8% y 12% menos._
 | R | naoagent | naomicouriel | — | -114.634 | -110.542 | 0.4% | -200.0 | -92.0 | 1000 | +3.854 |
 | R | valentino-pettazi-4 | ValenPettaz1 | — | -114.846 | -110.730 | 0.6% | -200.0 | -92.0 | 1000 | +4.066 |
 | R | naoagent-ensemble | naomicouriel | — | -115.473 | -110.828 | 0.6% | -200.0 | -92.0 | 1000 | +4.693 |
-| R | DeCruz | BrunoDC-dev | — | -115.643 | -111.288 | 0.2% | -200.0 | -92.0 | 1000 | +4.863 |
+| 4 | DeCruz | BrunoDC-dev | 12 | -115.643 | -111.288 | 0.2% | -200.0 | -92.0 | 1000 | +4.863 |
 | R | domabot4 | Sdomato | — | -115.935 | -110.858 | 0.0% | -186.0 | -92.0 | 1000 | +5.155 |
 | R | SilverArrow | VANAFA | — | -116.054 | -111.094 | 0.3% | -200.0 | -92.0 | 1000 | +5.274 |
-| 4 | Franco-Colapinto | famatodlr | 12 | -116.096 | -111.902 | 0.0% | -182.0 | -92.0 | 1000 | +5.316 |
+| 5 | Franco-Colapinto | famatodlr | 10 | -116.096 | -111.902 | 0.0% | -182.0 | -92.0 | 1000 | +5.316 |
 | R | lein | matilein | — | -116.266 | -110.862 | 0.2% | -200.0 | -92.0 | 1000 | +5.486 |
 | R | fium-V4 | tomasbenavidez | — | -116.694 | -112.252 | 0.4% | -200.0 | -93.0 | 1000 | +5.914 |
 | R | bravo-andres-r1 | Andresbravo9 | — | -116.829 | -111.446 | 0.0% | -193.0 | -92.0 | 1000 | +6.049 |
-| 5 | espero-no-ser-ultimo | Tadeo-Casiraghi | 10 | -117.494 | -111.386 | 0.1% | -200.0 | -93.0 | 1000 | +6.714 |
+| 6 | espero-no-ser-ultimo | Tadeo-Casiraghi | 8 | -117.494 | -111.386 | 0.1% | -200.0 | -93.0 | 1000 | +6.714 |
 | R | tomas-castro-equilibrado | tommycass | — | -117.999 | -110.830 | 0.1% | -200.0 | -92.0 | 1000 | +7.219 |
 | R | ivan-de-pineda-107 | RamaMusic | — | -118.047 | -110.864 | 0.0% | -195.0 | -92.0 | 1000 | +7.267 |
 | R | valentino-pettazi-2 | ValenPettaz1 | — | -118.077 | -111.790 | 0.3% | -200.0 | -92.0 | 1000 | +7.297 |
@@ -394,41 +399,41 @@ _El motor rinde entre 8% y 12% menos._
 | R | ivan-de-pineda-104 | RamaMusic | — | -118.274 | -110.740 | 0.3% | -200.0 | -92.0 | 1000 | +7.494 |
 | R | domabot3 | Sdomato | — | -118.370 | -111.886 | 0.0% | -167.0 | -92.0 | 1000 | +7.590 |
 | R | ivan-de-pineda-105 | RamaMusic | — | -118.723 | -111.188 | 0.3% | -200.0 | -92.0 | 1000 | +7.943 |
-| 6 | domabot2 | Sdomato | 8 | -118.738 | -111.758 | 0.2% | -200.0 | -92.0 | 1000 | +7.958 |
+| 7 | domabot2 | Sdomato | 6 | -118.738 | -111.758 | 0.2% | -200.0 | -92.0 | 1000 | +7.958 |
 | R | ivan-de-pineda-103 | RamaMusic | — | -118.976 | -110.844 | 0.3% | -200.0 | -92.0 | 1000 | +8.196 |
 | R | valentino-pettazi-3 | ValenPettaz1 | — | -119.103 | -111.314 | 0.3% | -200.0 | -92.0 | 1000 | +8.323 |
-| 7 | maxi | maxividela2577 | 6 | -119.282 | -112.610 | 0.4% | -200.0 | -93.0 | 1000 | +8.502 |
-| 8 | joaco-di-cola | joaco1212004 | 4 | -119.523 | -113.392 | 2.2% | -200.0 | -92.0 | 1000 | +8.743 |
+| 8 | maxi | maxividela2577 | 4 | -119.282 | -112.610 | 0.4% | -200.0 | -93.0 | 1000 | +8.502 |
+| 9 | joaco-di-cola | joaco1212004 | 2 | -119.523 | -113.392 | 2.2% | -200.0 | -92.0 | 1000 | +8.743 |
 | R | ivan-de-pineda-101 | RamaMusic | — | -120.693 | -113.274 | 0.3% | -200.0 | -92.0 | 1000 | +9.913 |
 | R | Larpest-v3 | ginerJuanUdesa | — | -121.039 | -114.000 | 0.1% | -200.0 | -92.0 | 1000 | +10.259 |
-| 9 | zoffi | florzoffi | 2 | -121.367 | -114.872 | 7.1% | -200.0 | -92.0 | 1000 | +10.587 |
-| 10 | mateofreire | mateofreire | 1 | -122.323 | -112.370 | 1.0% | -200.0 | -92.0 | 1000 | +11.543 |
-| 11 | tomas-castro | tommycass | 0 | -122.620 | -118.376 | 0.0% | -193.0 | -92.0 | 1000 | +11.840 |
-| 12 | ivan-de-pineda-102 | RamaMusic | 0 | -123.804 | -114.862 | 2.2% | -200.0 | -92.0 | 1000 | +13.024 |
-| 13 | sgroba | Santi2065 | 0 | -124.057 | -113.460 | 1.6% | -200.0 | -93.0 | 1000 | +13.277 |
-| 14 | frangiavarini-exp12 | frangiavarini | 0 | -124.562 | -115.994 | 1.4% | -200.0 | -93.0 | 1000 | +13.782 |
+| 10 | zoffi | florzoffi | 1 | -121.367 | -114.872 | 7.1% | -200.0 | -92.0 | 1000 | +10.587 |
+| 11 | mateofreire | mateofreire | 0 | -122.323 | -112.370 | 1.0% | -200.0 | -92.0 | 1000 | +11.543 |
+| 12 | tomas-castro | tommycass | 0 | -122.620 | -118.376 | 0.0% | -193.0 | -92.0 | 1000 | +11.840 |
+| 13 | ivan-de-pineda-102 | RamaMusic | 0 | -123.804 | -114.862 | 2.2% | -200.0 | -92.0 | 1000 | +13.024 |
+| 14 | sgroba | Santi2065 | 0 | -124.057 | -113.460 | 1.6% | -200.0 | -93.0 | 1000 | +13.277 |
+| 15 | frangiavarini-exp12 | frangiavarini | 0 | -124.562 | -115.994 | 1.4% | -200.0 | -93.0 | 1000 | +13.782 |
 | R | salim | athinasalimm | — | -125.186 | -119.948 | 0.0% | -195.0 | -93.0 | 1000 | +14.406 |
 | R | ivan-de-pineda-es-inocente-sin-features | RamaMusic | — | -125.251 | -117.268 | 2.9% | -200.0 | -92.0 | 1000 | +14.471 |
-| 15 | viaggio | FelipeViaggioFL | 0 | -125.442 | -114.484 | 0.2% | -200.0 | -94.0 | 1000 | +14.662 |
-| 16 | sally-m | athinasalimm | 0 | -125.624 | -120.458 | 0.1% | -200.0 | -92.0 | 1000 | +14.844 |
-| 17 | lein2 | matilein | 0 | -126.332 | -123.906 | 0.0% | -193.0 | -92.0 | 1000 | +15.552 |
-| 18 | vanafa | VANAFA | 0 | -126.354 | -120.288 | 0.5% | -200.0 | -93.0 | 1000 | +15.574 |
-| 19 | auto-cipre | CiprianoOss | 0 | -126.476 | -122.788 | 0.0% | -154.0 | -99.0 | 1000 | +15.696 |
-| 20 | bravo-andres | Andresbravo9 | 0 | -126.512 | -121.298 | 0.5% | -200.0 | -92.0 | 1000 | +15.732 |
+| 16 | viaggio | FelipeViaggioFL | 0 | -125.442 | -114.484 | 0.2% | -200.0 | -94.0 | 1000 | +14.662 |
+| 17 | sally-m | athinasalimm | 0 | -125.624 | -120.458 | 0.1% | -200.0 | -92.0 | 1000 | +14.844 |
+| 18 | lein2 | matilein | 0 | -126.332 | -123.906 | 0.0% | -193.0 | -92.0 | 1000 | +15.552 |
+| 19 | vanafa | VANAFA | 0 | -126.354 | -120.288 | 0.5% | -200.0 | -93.0 | 1000 | +15.574 |
+| 20 | auto-cipre | CiprianoOss | 0 | -126.476 | -122.788 | 0.0% | -154.0 | -99.0 | 1000 | +15.696 |
+| 21 | bravo-andres | Andresbravo9 | 0 | -126.512 | -121.298 | 0.5% | -200.0 | -92.0 | 1000 | +15.732 |
 | R | Alan-Schadan | Alanschad | — | -126.532 | -119.804 | 0.7% | -200.0 | -93.0 | 1000 | +15.752 |
 | R | ivan-de-pineda-es-inocente-con-features | RamaMusic | — | -126.765 | -119.776 | 1.5% | -200.0 | -92.0 | 1000 | +15.985 |
-| 21 | naoagent-greedy | naomicouriel | 0 | -126.818 | -120.192 | 1.6% | -200.0 | -93.0 | 1000 | +16.038 |
+| 22 | naoagent-greedy | naomicouriel | 0 | -126.818 | -120.192 | 1.6% | -200.0 | -93.0 | 1000 | +16.038 |
 | R | naoagent-greedy3 | naomicouriel | — | -126.967 | -121.108 | 0.9% | -200.0 | -92.0 | 1000 | +16.187 |
-| 22 | valeriano | Isivaleriano | 0 | -127.281 | -114.172 | 3.9% | -200.0 | -102.0 | 1000 | +16.501 |
-| 23 | jazgeller | jazgeller | 0 | -127.327 | -120.268 | 0.1% | -200.0 | -93.0 | 1000 | +16.547 |
+| 23 | valeriano | Isivaleriano | 0 | -127.281 | -114.172 | 3.9% | -200.0 | -102.0 | 1000 | +16.501 |
+| 24 | jazgeller | jazgeller | 0 | -127.327 | -120.268 | 0.1% | -200.0 | -93.0 | 1000 | +16.547 |
 | R | ivan-de-pineda-es-inocente-sin-cos | RamaMusic | — | -127.381 | -120.494 | 0.8% | -200.0 | -92.0 | 1000 | +16.601 |
 | R | lein3 | matilein | — | -127.464 | -126.000 | 0.0% | -192.0 | -92.0 | 1000 | +16.684 |
-| 24 | gonzalezds | mariagonzalezdelsolar | 0 | -127.507 | -123.486 | 0.0% | -186.0 | -93.0 | 1000 | +16.727 |
+| 25 | gonzalezds | mariagonzalezdelsolar | 0 | -127.507 | -123.486 | 0.0% | -186.0 | -93.0 | 1000 | +16.727 |
 | R | naoagent-greedy2 | naomicouriel | — | -128.727 | -122.904 | 0.9% | -200.0 | -92.0 | 1000 | +17.947 |
-| 25 | leon-alderete | joaquinleondev | 0 | -129.705 | -122.852 | 2.3% | -200.0 | -93.0 | 1000 | +18.925 |
-| 26 | fium-V3 | tomasbenavidez | 0 | -130.158 | -122.592 | 0.4% | -200.0 | -92.0 | 1000 | +19.378 |
-| 27 | Meteoro | FacundoFirpo | 0 | -130.904 | -120.308 | 6.0% | -200.0 | -93.0 | 1000 | +20.124 |
-| 28 | DeCruz_v2 | BrunoDC-dev | 0 | -132.224 | -129.800 | 0.4% | -200.0 | -92.0 | 1000 | +21.444 |
+| 26 | leon-alderete | joaquinleondev | 0 | -129.705 | -122.852 | 2.3% | -200.0 | -93.0 | 1000 | +18.925 |
+| 27 | fium-V3 | tomasbenavidez | 0 | -130.158 | -122.592 | 0.4% | -200.0 | -92.0 | 1000 | +19.378 |
+| 28 | Meteoro | FacundoFirpo | 0 | -130.904 | -120.308 | 6.0% | -200.0 | -93.0 | 1000 | +20.124 |
+| R | DeCruz_v2 | BrunoDC-dev | — | -132.224 | -129.800 | 0.4% | -200.0 | -92.0 | 1000 | +21.444 |
 | R | Wachinators-v1 | ginerJuanUdesa | — | -132.833 | -128.554 | 1.3% | -200.0 | -92.0 | 1000 | +22.053 |
 | 29 | Sloppeitors-v1 | ginerJuanUdesa | 0 | -133.096 | -132.672 | 0.2% | -200.0 | -92.0 | 1000 | +22.316 |
 | R | agusamblard | agusamblard | — | -133.343 | -125.230 | 4.9% | -200.0 | -93.0 | 1000 | +22.563 |
@@ -464,52 +469,52 @@ _La montaña cambia de forma: cos(f·x) con f entre 2.6 y 2.8 (en vez de 3)._
 | R | Wachinators-v1 | ginerJuanUdesa | — | -96.415 | -97.494 | 0.0% | -109.0 | -82.0 | 1000 | +0.434 |
 | R | fium-V1 | tomasbenavidez | — | -97.121 | -97.652 | 0.0% | -111.0 | -83.0 | 1000 | +1.140 |
 | 3 | tomas-castro | tommycass | 15 | -97.286 | -98.346 | 0.0% | -110.0 | -82.0 | 1000 | +1.305 |
-| 4 | DeCruz_v2 | BrunoDC-dev | 12 | -97.651 | -99.442 | 0.0% | -109.0 | -82.0 | 1000 | +1.670 |
-| 5 | fium-V3 | tomasbenavidez | 10 | -98.192 | -100.480 | 0.0% | -110.0 | -82.0 | 1000 | +2.211 |
-| 6 | bravo-andres | Andresbravo9 | 8 | -98.226 | -100.384 | 0.0% | -110.0 | -82.0 | 1000 | +2.245 |
+| R | DeCruz_v2 | BrunoDC-dev | — | -97.651 | -99.442 | 0.0% | -109.0 | -82.0 | 1000 | +1.670 |
+| 4 | fium-V3 | tomasbenavidez | 12 | -98.192 | -100.480 | 0.0% | -110.0 | -82.0 | 1000 | +2.211 |
+| 5 | bravo-andres | Andresbravo9 | 10 | -98.226 | -100.384 | 0.0% | -110.0 | -82.0 | 1000 | +2.245 |
 | R | naoagent-greedy2 | naomicouriel | — | -98.919 | -101.578 | 0.0% | -109.0 | -82.0 | 1000 | +2.938 |
-| 7 | gonzalezds | mariagonzalezdelsolar | 6 | -98.962 | -100.764 | 0.0% | -112.0 | -83.0 | 1000 | +2.981 |
-| 8 | naoagent-greedy | naomicouriel | 4 | -98.967 | -101.634 | 0.0% | -110.0 | -82.0 | 1000 | +2.986 |
+| 6 | gonzalezds | mariagonzalezdelsolar | 8 | -98.962 | -100.764 | 0.0% | -112.0 | -83.0 | 1000 | +2.981 |
+| 7 | naoagent-greedy | naomicouriel | 6 | -98.967 | -101.634 | 0.0% | -110.0 | -82.0 | 1000 | +2.986 |
 | R | Larpest-v3 | ginerJuanUdesa | — | -99.044 | -101.890 | 0.0% | -110.0 | -82.0 | 1000 | +3.063 |
 | R | ivan-de-pineda-es-inocente-sin-cos | RamaMusic | — | -99.134 | -102.084 | 0.0% | -109.0 | -82.0 | 1000 | +3.153 |
 | R | naoagent-greedy3 | naomicouriel | — | -99.197 | -101.904 | 0.0% | -110.0 | -82.0 | 1000 | +3.216 |
-| 9 | leon-alderete | joaquinleondev | 2 | -99.202 | -101.910 | 0.0% | -110.0 | -82.0 | 1000 | +3.221 |
-| 10 | ivan-de-pineda-102 | RamaMusic | 1 | -99.342 | -102.606 | 0.0% | -110.0 | -82.0 | 1000 | +3.361 |
-| 11 | sally-m | athinasalimm | 0 | -99.412 | -101.678 | 0.0% | -111.0 | -83.0 | 1000 | +3.431 |
+| 8 | leon-alderete | joaquinleondev | 4 | -99.202 | -101.910 | 0.0% | -110.0 | -82.0 | 1000 | +3.221 |
+| 9 | ivan-de-pineda-102 | RamaMusic | 2 | -99.342 | -102.606 | 0.0% | -110.0 | -82.0 | 1000 | +3.361 |
+| 10 | sally-m | athinasalimm | 1 | -99.412 | -101.678 | 0.0% | -111.0 | -83.0 | 1000 | +3.431 |
 | R | ivan-de-pineda-es-inocente-sin-features | RamaMusic | — | -99.473 | -102.166 | 0.0% | -111.0 | -82.0 | 1000 | +3.492 |
 | R | ivan-de-pineda-es-inocente-con-features | RamaMusic | — | -99.569 | -102.144 | 0.0% | -111.0 | -83.0 | 1000 | +3.588 |
 | R | tomasbenavidez | tomasbenavidez | — | -100.060 | -102.298 | 0.0% | -122.0 | -83.0 | 1000 | +4.079 |
-| 12 | vanafa | VANAFA | 0 | -100.162 | -102.492 | 0.0% | -113.0 | -83.0 | 1000 | +4.181 |
+| 11 | vanafa | VANAFA | 0 | -100.162 | -102.492 | 0.0% | -113.0 | -83.0 | 1000 | +4.181 |
 | R | ivan-de-pineda-101 | RamaMusic | — | -100.175 | -103.304 | 0.0% | -111.0 | -82.0 | 1000 | +4.194 |
-| 13 | frangiavarini-exp12 | frangiavarini | 0 | -100.200 | -103.320 | 0.0% | -111.0 | -83.0 | 1000 | +4.219 |
-| 14 | Meteoro | FacundoFirpo | 0 | -100.551 | -103.898 | 0.0% | -111.0 | -83.0 | 1000 | +4.570 |
-| 15 | mateofreire | mateofreire | 0 | -101.106 | -104.210 | 0.0% | -114.0 | -82.0 | 1000 | +5.125 |
+| 12 | frangiavarini-exp12 | frangiavarini | 0 | -100.200 | -103.320 | 0.0% | -111.0 | -83.0 | 1000 | +4.219 |
+| 13 | Meteoro | FacundoFirpo | 0 | -100.551 | -103.898 | 0.0% | -111.0 | -83.0 | 1000 | +4.570 |
+| 14 | mateofreire | mateofreire | 0 | -101.106 | -104.210 | 0.0% | -114.0 | -82.0 | 1000 | +5.125 |
 | R | ivan-de-pineda-105 | RamaMusic | — | -101.108 | -105.178 | 0.0% | -111.0 | -82.0 | 1000 | +5.127 |
 | R | Alan-Schadan | Alanschad | — | -101.159 | -103.448 | 0.0% | -114.0 | -83.0 | 1000 | +5.178 |
-| 16 | viaggio | FelipeViaggioFL | 0 | -101.387 | -105.796 | 0.0% | -112.0 | -82.0 | 1000 | +5.406 |
+| 15 | viaggio | FelipeViaggioFL | 0 | -101.387 | -105.796 | 0.0% | -112.0 | -82.0 | 1000 | +5.406 |
 | R | bravo-andres-r1 | Andresbravo9 | — | -101.458 | -105.860 | 0.0% | -112.0 | -82.0 | 1000 | +5.477 |
-| 17 | auto-cipre | CiprianoOss | 0 | -101.474 | -103.940 | 0.0% | -117.0 | -82.0 | 1000 | +5.493 |
+| 16 | auto-cipre | CiprianoOss | 0 | -101.474 | -103.940 | 0.0% | -117.0 | -82.0 | 1000 | +5.493 |
 | R | ivan-de-pineda-106 | RamaMusic | — | -101.539 | -105.534 | 0.0% | -113.0 | -82.0 | 1000 | +5.558 |
 | R | tomas-castro-equilibrado | tommycass | — | -101.662 | -105.994 | 0.0% | -113.0 | -82.0 | 1000 | +5.681 |
 | R | ivan-de-pineda-103 | RamaMusic | — | -101.690 | -105.754 | 0.0% | -113.0 | -82.0 | 1000 | +5.709 |
 | R | ivan-de-pineda-107 | RamaMusic | — | -101.930 | -106.220 | 0.0% | -113.0 | -82.0 | 1000 | +5.949 |
 | R | salim | athinasalimm | — | -102.124 | -104.612 | 0.0% | -144.0 | -84.0 | 1000 | +6.143 |
-| 18 | jazgeller | jazgeller | 0 | -102.260 | -104.368 | 0.0% | -119.0 | -83.0 | 1000 | +6.279 |
-| 19 | Franco-Colapinto | famatodlr | 0 | -102.281 | -107.276 | 0.0% | -114.0 | -82.0 | 1000 | +6.300 |
+| 17 | jazgeller | jazgeller | 0 | -102.260 | -104.368 | 0.0% | -119.0 | -83.0 | 1000 | +6.279 |
+| 18 | Franco-Colapinto | famatodlr | 0 | -102.281 | -107.276 | 0.0% | -114.0 | -82.0 | 1000 | +6.300 |
 | R | valentino-pettazi-3 | ValenPettaz1 | — | -102.321 | -106.012 | 0.0% | -115.0 | -83.0 | 1000 | +6.340 |
 | R | SilverArrow | VANAFA | — | -102.383 | -107.198 | 0.0% | -115.0 | -82.0 | 1000 | +6.402 |
 | R | ivan-de-pineda-104 | RamaMusic | — | -102.476 | -107.082 | 0.0% | -114.0 | -82.0 | 1000 | +6.495 |
 | R | valentino-pettazi-2 | ValenPettaz1 | — | -102.821 | -107.686 | 0.0% | -115.0 | -82.0 | 1000 | +6.840 |
-| 20 | domabot2 | Sdomato | 0 | -102.947 | -107.528 | 0.0% | -115.0 | -83.0 | 1000 | +6.966 |
-| 21 | sgroba | Santi2065 | 0 | -102.965 | -105.862 | 0.0% | -117.0 | -83.0 | 1000 | +6.984 |
+| 19 | domabot2 | Sdomato | 0 | -102.947 | -107.528 | 0.0% | -115.0 | -83.0 | 1000 | +6.966 |
+| 20 | sgroba | Santi2065 | 0 | -102.965 | -105.862 | 0.0% | -117.0 | -83.0 | 1000 | +6.984 |
 | R | domabot4 | Sdomato | — | -103.230 | -107.998 | 0.0% | -114.0 | -82.0 | 1000 | +7.249 |
 | R | naoagent-ensemble | naomicouriel | — | -103.321 | -107.904 | 0.0% | -116.0 | -83.0 | 1000 | +7.340 |
 | R | domabot3 | Sdomato | — | -103.450 | -107.510 | 0.3% | -200.0 | -82.0 | 1000 | +7.469 |
-| 22 | maxi | maxividela2577 | 0 | -103.585 | -107.732 | 0.0% | -118.0 | -83.0 | 1000 | +7.604 |
+| 21 | maxi | maxividela2577 | 0 | -103.585 | -107.732 | 0.0% | -118.0 | -83.0 | 1000 | +7.604 |
 | R | naoagent | naomicouriel | — | -103.726 | -108.442 | 0.0% | -115.0 | -82.0 | 1000 | +7.745 |
-| 23 | espero-no-ser-ultimo | Tadeo-Casiraghi | 0 | -103.944 | -108.434 | 0.0% | -116.0 | -83.0 | 1000 | +7.963 |
+| 22 | espero-no-ser-ultimo | Tadeo-Casiraghi | 0 | -103.944 | -108.434 | 0.0% | -116.0 | -83.0 | 1000 | +7.963 |
 | R | lein | matilein | — | -104.051 | -108.690 | 0.0% | -115.0 | -83.0 | 1000 | +8.070 |
-| R | DeCruz | BrunoDC-dev | — | -104.448 | -108.368 | 0.0% | -121.0 | -83.0 | 1000 | +8.467 |
+| 23 | DeCruz | BrunoDC-dev | 0 | -104.448 | -108.368 | 0.0% | -121.0 | -83.0 | 1000 | +8.467 |
 | R | domabot | Sdomato | — | -104.832 | -108.060 | 0.0% | -121.0 | -83.0 | 1000 | +8.851 |
 | R | valentino-pettazi-4 | ValenPettaz1 | — | -106.426 | -110.196 | 0.1% | -200.0 | -83.0 | 1000 | +10.445 |
 | R | agusamblard | agusamblard | — | -106.427 | -107.062 | 0.6% | -200.0 | -85.0 | 1000 | +10.446 |
@@ -527,6 +532,7 @@ _La montaña cambia de forma: cos(f·x) con f entre 2.6 y 2.8 (en vez de 3)._
 | R | Larpest-v4 | ginerJuanUdesa | — | -115.515 | -109.502 | 8.6% | -200.0 | -83.0 | 1000 | +19.534 |
 | R | Alan-Schadan-v3 | Alanschad | — | -117.224 | -112.124 | 8.2% | -200.0 | -83.0 | 1000 | +21.243 |
 | R | Wachinators-v2 | ginerJuanUdesa | — | -117.841 | -109.372 | 11.4% | -200.0 | -83.0 | 1000 | +21.860 |
+| R | Larpest-v5 | ginerJuanUdesa | — | -118.195 | -110.728 | 10.8% | -200.0 | -82.0 | 1000 | +22.214 |
 | 31 | Alan-Schadan-v4 | Alanschad | 0 | -118.661 | -112.358 | 9.5% | -200.0 | -83.0 | 1000 | +22.680 |
 | R | Wachinators-v3 | ginerJuanUdesa | — | -121.371 | -110.858 | 13.9% | -200.0 | -83.0 | 1000 | +25.390 |
 | R | fium-V2 | tomasbenavidez | — | -128.591 | -113.772 | 19.5% | -200.0 | -83.0 | 1000 | +32.610 |

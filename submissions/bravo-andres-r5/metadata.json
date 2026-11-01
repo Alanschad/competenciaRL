@@ -1,0 +1,1 @@
+{"team": "bravo-andres-r5", "members": ["Bravo Andres"], "notes": "Reserva: ensamble de 8 DQN elegidas por puntos con especialistas de estandar+motor de red 256-256 (tanda 13); domain randomization, obs-norm dentro de la red, retornos 3-step, seleccion hacia adelante en 1000 seeds propias."}

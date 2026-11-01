@@ -1,6 +1,6 @@
 # 🏆 Leaderboard — Campeonato RL (DQN)
 
-Entorno base: `MountainCar-v0` · 5 circuitos · Ranking por **MEDIA** en cada circuito · Actualizado: 2026-11-01 11:39 UTC
+Entorno base: `MountainCar-v0` · 5 circuitos · Ranking por **MEDIA** en cada circuito · Actualizado: 2026-11-01 13:58 UTC
 
 Puntos por circuito: 25, 18, 15, 12, 10, 8, 6, 4, 2, 1 (del 1° al 10°). La misma policy corre en todos los circuitos. Detalle de cada uno en el README.
 
@@ -55,6 +55,7 @@ No suman ni ocupan posiciones. Las posiciones son las que tendría cada auto si 
 | Alan-Schadan-v2 | Alanschad | 24 | 26° | 7° (6) | 14° | 2° (18) | 30° |
 | Alan-Schadan | Alanschad | 6 | 7° (6) | 11° | 24° | 21° | 15° |
 | bravo-andres-r2 | Andresbravo9 | 29 | 23° | 4° (12) | 9° (2) | 3° (15) | 24° |
+| bravo-andres-r5 | Andresbravo9 | 28 | 18° | 7° (6) | 5° (10) | 4° (12) | 23° |
 | bravo-andres-r1 | Andresbravo9 | 18 | 13° | 7° (6) | 8° (4) | 6° (8) | 15° |
 | salim | athinasalimm | 18 | 6° (8) | 5° (10) | 20° | 16° | 16° |
 | DeCruz_v2 | BrunoDC-dev | 18 | 11° | 7° (6) | 16° | 28° | 4° (12) |
@@ -147,6 +148,7 @@ _MountainCar-v0 tal cual._
 | R | valentino-pettazi-2 | ValenPettaz1 | — | -99.294 | -103.312 | 0.0% | -105.0 | -84.0 | 1000 | +1.885 |
 | R | ivan-de-pineda-104 | RamaMusic | — | -99.307 | -103.018 | 0.0% | -106.0 | -83.0 | 1000 | +1.898 |
 | 18 | espero-no-ser-ultimo | Tadeo-Casiraghi | 0 | -99.315 | -103.292 | 0.0% | -104.0 | -83.0 | 1000 | +1.906 |
+| R | bravo-andres-r5 | Andresbravo9 | — | -99.494 | -103.084 | 0.0% | -105.0 | -83.0 | 1000 | +2.085 |
 | 19 | domabot2 | Sdomato | 0 | -99.526 | -103.570 | 0.0% | -104.0 | -84.0 | 1000 | +2.117 |
 | R | naoagent | naomicouriel | — | -99.560 | -103.346 | 0.0% | -105.0 | -83.0 | 1000 | +2.151 |
 | R | ivan-de-pineda-107 | RamaMusic | — | -99.620 | -103.046 | 0.0% | -107.0 | -83.0 | 1000 | +2.211 |
@@ -214,6 +216,7 @@ _Largan desde cualquier punto de la pista y con velocidad inicial._
 | R | Alan-Schadan-v3 | Alanschad | — | -57.463 | -59.186 | 0.0% | -121.0 | -3.0 | 1000 | +0.376 |
 | 7 | tomas-castro | tommycass | 6 | -57.466 | -58.982 | 0.0% | -143.0 | -3.0 | 1000 | +0.379 |
 | R | bravo-andres-r1 | Andresbravo9 | — | -57.496 | -59.020 | 0.0% | -152.0 | -3.0 | 1000 | +0.409 |
+| R | bravo-andres-r5 | Andresbravo9 | — | -57.524 | -58.934 | 0.0% | -159.0 | -3.0 | 1000 | +0.437 |
 | R | naoagent | naomicouriel | — | -57.585 | -58.898 | 0.0% | -163.0 | -3.0 | 1000 | +0.498 |
 | R | fium-V5 | tomasbenavidez | — | -57.606 | -59.036 | 0.0% | -158.0 | -3.0 | 1000 | +0.519 |
 | R | Alan-Schadan-v2 | Alanschad | — | -57.654 | -59.382 | 0.0% | -119.0 | -3.0 | 1000 | +0.567 |
@@ -296,6 +299,7 @@ _Sensores con ruido gaussiano en posición y velocidad._
 | R | naoagent | naomicouriel | — | -101.021 | -103.266 | 0.0% | -174.0 | -83.0 | 1000 | +0.744 |
 | 3 | fium-V3 | tomasbenavidez | 15 | -101.088 | -102.022 | 0.0% | -186.0 | -83.0 | 1000 | +0.811 |
 | 4 | domabot2 | Sdomato | 12 | -101.321 | -103.686 | 0.0% | -178.0 | -83.0 | 1000 | +1.044 |
+| R | bravo-andres-r5 | Andresbravo9 | — | -101.357 | -103.246 | 0.0% | -162.0 | -83.0 | 1000 | +1.080 |
 | R | ivan-de-pineda-107 | RamaMusic | — | -101.429 | -103.294 | 0.0% | -188.0 | -83.0 | 1000 | +1.152 |
 | R | valentino-pettazi | ValenPettaz1 | — | -101.441 | -103.492 | 0.0% | -160.0 | -83.0 | 1000 | +1.164 |
 | R | valentino-pettazi-4 | ValenPettaz1 | — | -101.568 | -103.568 | 0.0% | -199.0 | -83.0 | 1000 | +1.291 |
@@ -381,6 +385,7 @@ _El motor rinde entre 8% y 12% menos._
 | R | valentino-pettazi | ValenPettaz1 | — | -112.549 | -110.862 | 0.0% | -171.0 | -92.0 | 1000 | +1.769 |
 | R | bravo-andres-r2 | Andresbravo9 | — | -112.686 | -111.022 | 0.1% | -200.0 | -92.0 | 1000 | +1.906 |
 | 3 | agusamblard-v4 | agusamblard | 15 | -113.436 | -111.512 | 0.4% | -200.0 | -92.0 | 1000 | +2.656 |
+| R | bravo-andres-r5 | Andresbravo9 | — | -114.266 | -110.616 | 0.4% | -200.0 | -92.0 | 1000 | +3.486 |
 | R | naoagent | naomicouriel | — | -114.634 | -110.542 | 0.4% | -200.0 | -92.0 | 1000 | +3.854 |
 | R | valentino-pettazi-4 | ValenPettaz1 | — | -114.846 | -110.730 | 0.6% | -200.0 | -92.0 | 1000 | +4.066 |
 | R | naoagent-ensemble | naomicouriel | — | -115.473 | -110.828 | 0.6% | -200.0 | -92.0 | 1000 | +4.693 |
@@ -515,6 +520,7 @@ _La montaña cambia de forma: cos(f·x) con f entre 2.6 y 2.8 (en vez de 3)._
 | 22 | espero-no-ser-ultimo | Tadeo-Casiraghi | 0 | -103.944 | -108.434 | 0.0% | -116.0 | -83.0 | 1000 | +7.963 |
 | R | lein | matilein | — | -104.051 | -108.690 | 0.0% | -115.0 | -83.0 | 1000 | +8.070 |
 | 23 | DeCruz | BrunoDC-dev | 0 | -104.448 | -108.368 | 0.0% | -121.0 | -83.0 | 1000 | +8.467 |
+| R | bravo-andres-r5 | Andresbravo9 | — | -104.469 | -108.840 | 0.0% | -119.0 | -83.0 | 1000 | +8.488 |
 | R | domabot | Sdomato | — | -104.832 | -108.060 | 0.0% | -121.0 | -83.0 | 1000 | +8.851 |
 | R | valentino-pettazi-4 | ValenPettaz1 | — | -106.426 | -110.196 | 0.1% | -200.0 | -83.0 | 1000 | +10.445 |
 | R | agusamblard | agusamblard | — | -106.427 | -107.062 | 0.6% | -200.0 | -85.0 | 1000 | +10.446 |

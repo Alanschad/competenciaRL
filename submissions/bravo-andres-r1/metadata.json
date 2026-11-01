@@ -1,1 +1,1 @@
-{"team": "bravo-andres-r1", "members": ["Bravo Andres"], "notes": "Auto de reserva: ensamble ensemble_greedy_todas (DQN con domain randomization, seleccion hacia adelante), 49 puntos en nuestras seeds"}
+{"team": "bravo-andres-r1", "members": ["Bravo Andres"], "notes": "Ensamble de 5 DQN (domain randomization, especialistas en motor con largada libre, obs-norm, 3-step) elegidas por seleccion hacia adelante maximizando puntos F1 contra los titulares del board en 1000 seeds propias y confirmadas en otras 1000: apunta a lluvia, motor debil y largada libre."}

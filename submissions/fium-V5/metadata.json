@@ -1,0 +1,1 @@
+{"team": "fium-V5", "members": ["Tomás Benavidez"], "notes": "DQN puro (Double DQN + TD 3-step + shaping por potencial de energía + SIL) + advantage learning + regularizador de suavidad adversarial (FGSM), ajustado con domain randomization con más peso en estándar, largada libre y motor débil; auto de la escudería tomasbenavidez"}

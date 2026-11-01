@@ -1,0 +1,7 @@
+{
+  "team": "goro-picart",
+  "members": [
+    "Elías Joaquín Goró Picart"
+  ],
+  "notes": "DQN aprendido desde cero por interacción con los cinco GP; recompensa original, sin shaping ni reglas físicas. Configuración b32_lr0002; entrada posición y velocidad, salida tres Q-values."
+}
